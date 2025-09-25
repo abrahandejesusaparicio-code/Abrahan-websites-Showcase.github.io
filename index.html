@@ -7,6 +7,25 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; } /* 🔥 Smooth scrolling */
+    /* Hover underline animation for navbar */
+    .nav-link {
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: #1428A0;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -14,29 +33,29 @@
   <!-- Navbar -->
   <header class="fixed w-full bg-white shadow-sm z-50">
     <nav class="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
-      <h1 class="font-bold text-xl">Abrahan Aparicio</h1>
+      <h1 class="font-bold text-xl text-[#1428A0]">Abrahan Aparicio</h1>
       <ul class="flex space-x-6 text-sm font-medium">
-        <li><a href="#about" class="hover:text-blue-500">About</a></li>
-        <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
-        <li><a href="#experience" class="hover:text-blue-500">Experience</a></li>
-        <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+        <li><a href="#about" class="nav-link hover:text-[#1428A0]">About</a></li>
+        <li><a href="#skills" class="nav-link hover:text-[#1428A0]">Skills</a></li>
+        <li><a href="#projects" class="nav-link hover:text-[#1428A0]">Projects</a></li>
+        <li><a href="#contact" class="nav-link hover:text-[#1428A0]">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-4">
+  <section class="h-screen flex flex-col justify-center items-center text-center px-4 bg-[#F4F4F4]">
     <h2 class="text-4xl md:text-6xl font-bold mb-4">Abrahan De Jesús Aparicio Herrera</h2>
     <p class="text-lg md:text-xl text-gray-600 mb-6">Bilingual Translator & Front-End Developer</p>
     <div class="flex space-x-4">
-      <a href="#experience" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">View My Work</a>
-      <a href="CV_Abrahan_Aparicio..docx" class="px-6 py-3 border border-gray-900 rounded-lg hover:bg-gray-100 transition">Download CV</a>
+      <a href="#projects" class="px-6 py-3 bg-[#1428A0] text-white rounded-lg hover:bg-blue-900 transition transform hover:scale-105">View My Work</a>
+      <a href="CV_Abrahan_Aparicio..docx" class="px-6 py-3 border border-gray-900 rounded-lg hover:bg-gray-200 transition transform hover:scale-105">Download CV</a>
     </div>
   </section>
 
   <!-- About -->
   <section id="about" class="max-w-5xl mx-auto py-20 px-6">
-    <h3 class="text-2xl font-bold mb-4">About Me</h3>
+    <h3 class="text-2xl font-bold mb-4 text-[#1428A0]">About Me</h3>
     <p class="text-gray-700 leading-relaxed">
       Bilingual professional with a strong foundation in both technical and linguistic fields.
       Experienced in English to Spanish translation, along with proficiency in C++ and front-end web development.
@@ -46,46 +65,45 @@
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="bg-gray-50 py-20 px-6">
+  <section id="skills" class="bg-[#F4F4F4] py-20 px-6">
     <div class="max-w-5xl mx-auto">
-      <h3 class="text-2xl font-bold mb-8">Skills</h3>
+      <h3 class="text-2xl font-bold mb-8 text-[#1428A0]">Skills</h3>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
-        <div class="p-6 bg-white rounded-xl shadow">Translation (EN ↔ ES)</div>
-        <div class="p-6 bg-white rounded-xl shadow">Proofreading & Editing</div>
-        <div class="p-6 bg-white rounded-xl shadow">HTML, CSS, JavaScript</div>
-        <div class="p-6 bg-white rounded-xl shadow">C++ Programming</div>
-        <div class="p-6 bg-white rounded-xl shadow">Responsive Web Design</div>
-        <div class="p-6 bg-white rounded-xl shadow">Customer Service & Teamwork</div>
+        <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Translation (EN ↔ ES)</div>
+        <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Proofreading & Editing</div>
+        <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">HTML, CSS, JavaScript</div>
+        <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">C++ Programming</div>
+        <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Responsive Web Design</div>
+        <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Customer Service & Teamwork</div>
       </div>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="max-w-5xl mx-auto py-20 px-6">
-    <h3 class="text-2xl font-bold mb-8">Experience</h3>
-    <div class="space-y-6">
-      <div class="p-6 border rounded-xl hover:shadow transition">
-        <h4 class="font-semibold">Freelance Translator/Proofreader – Penguin Books</h4>
-        <p class="text-sm text-gray-500">2 years</p>
-        <p class="mt-2 text-gray-700">Translation and proofreading of children's texts, using CAT tools.</p>
+  <!-- Projects -->
+  <section id="projects" class="max-w-5xl mx-auto py-20 px-6">
+    <h3 class="text-2xl font-bold mb-8 text-[#1428A0]">Projects</h3>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Project Card -->
+      <div class="p-6 border rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">
+        <h4 class="font-semibold text-lg">Portfolio Website</h4>
+        <p class="text-sm text-gray-500 mb-2">Personal Project</p>
+        <p class="text-gray-700">A clean and minimalistic portfolio website built with HTML, TailwindCSS, and JavaScript. Showcases my translation and development work.</p>
+        <a href="#" class="inline-block mt-3 text-[#1428A0] hover:underline">View Project →</a>
       </div>
-      <div class="p-6 border rounded-xl hover:shadow transition">
-        <h4 class="font-semibold">Freelance Programmer – Local Business</h4>
-        <p class="text-sm text-gray-500">1 year</p>
-        <p class="mt-2 text-gray-700">Managed and developed business websites.</p>
-      </div>
-      <div class="p-6 border rounded-xl hover:shadow transition">
-        <h4 class="font-semibold">Salesman/Customer Service – Tigo Call Center</h4>
-        <p class="text-sm text-gray-500">1 year</p>
-        <p class="mt-2 text-gray-700">Helped customers with information about their packages and sold new internet packages.</p>
+      <!-- Project Card -->
+      <div class="p-6 border rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">
+        <h4 class="font-semibold text-lg">Local Business Website</h4>
+        <p class="text-sm text-gray-500 mb-2">Freelance Work</p>
+        <p class="text-gray-700">Developed and managed a responsive website for a small local market shop, enhancing their online presence.</p>
+        <a href="#" class="inline-block mt-3 text-[#1428A0] hover:underline">View Project →</a>
       </div>
     </div>
   </section>
 
   <!-- Education -->
-  <section id="education" class="bg-gray-50 py-20 px-6">
+  <section id="education" class="bg-[#F4F4F4] py-20 px-6">
     <div class="max-w-5xl mx-auto">
-      <h3 class="text-2xl font-bold mb-8">Education</h3>
+      <h3 class="text-2xl font-bold mb-8 text-[#1428A0]">Education</h3>
       <ul class="list-disc pl-6 text-gray-700 space-y-2">
         <li>International High School Diploma – Calvert Academy, U.S. Program (2025)</li>
         <li>Coronado International School (2025)</li>
@@ -95,15 +113,15 @@
 
   <!-- Languages -->
   <section id="languages" class="max-w-5xl mx-auto py-20 px-6">
-    <h3 class="text-2xl font-bold mb-8">Languages</h3>
+    <h3 class="text-2xl font-bold mb-8 text-[#1428A0]">Languages</h3>
     <div class="grid grid-cols-2 md:grid-cols-2 gap-6 text-center">
-      <div class="p-6 bg-white rounded-xl shadow">Spanish – Native</div>
-      <div class="p-6 bg-white rounded-xl shadow">English – Native</div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Spanish – Native</div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">English – Native</div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="bg-gray-900 text-white py-20 px-6">
+  <section id="contact" class="bg-[#1428A0] text-white py-20 px-6">
     <div class="max-w-5xl mx-auto">
       <h3 class="text-2xl font-bold mb-8">Get in Touch</h3>
       <p class="mb-6">Feel free to reach out via email, phone, or the form below.</p>
@@ -118,14 +136,14 @@
           <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-gray-100 text-gray-900" required>
           <input type="email" placeholder="Your Email" class="w-full p-3 rounded bg-gray-100 text-gray-900" required>
           <textarea placeholder="Your Message" class="w-full p-3 rounded bg-gray-100 text-gray-900" rows="4" required></textarea>
-          <button type="submit" class="w-full py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition">Send Message</button>
+          <button type="submit" class="w-full py-3 bg-black rounded-lg hover:bg-gray-800 transition transform hover:scale-105">Send Message</button>
         </form>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-6 text-center text-gray-500 text-sm">
+  <footer class="py-6 text-center text-gray-500 text-sm bg-black text-white">
     © 2025 Abrahan De Jesús Aparicio Herrera. All Rights Reserved.
   </footer>
 
