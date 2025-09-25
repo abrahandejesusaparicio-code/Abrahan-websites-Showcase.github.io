@@ -54,6 +54,18 @@
       position: relative;
       z-index: 1;
     }
+
+    /* 🔥 Hero Animated Gradient Background */
+    .hero-bg {
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #2563eb, #38bdf8);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
   </style>
 </head>
 <body class="bg-[#0F172A] text-[#F8FAFC]">
@@ -72,7 +84,7 @@
   </header>
 
   <!-- Hero -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-4 bg-[#0F172A]" data-aos="fade-up">
+  <section class="h-screen flex flex-col justify-center items-center text-center px-4 hero-bg" data-aos="fade-up">
     <h2 class="text-4xl md:text-6xl font-bold mb-4">Abrahan De Jesús Aparicio Herrera</h2>
     <p class="text-lg md:text-xl text-[#94A3B8] mb-6">Bilingual Translator & Front-End Developer</p>
     <div class="flex space-x-4">
@@ -121,10 +133,11 @@
       <!-- Gaming Project -->
       <div class="p-6 bg-[#1E293B] rounded-xl shadow wave-card md:col-span-2">
         <h4 class="font-semibold text-lg">E-Shop for Gaming Industry</h4>
-        <p class="text-sm text-[#94A3B8] mb-2">Personal Project</p>
+        <p class="text-sm text-[#94A3B8] mb-2">Design Showcase</p>
         <img src="Pictures/Gaming_website_pic..jpg" alt="Gaming Website" class="rounded-lg mb-4">
         <p class="text-[#E2E8F0]">An online gaming shop concept showcasing sleek UI and responsive design for the gaming industry.</p>
         <a href="https://abrahandejesusaparicio-code.github.io/sentinel-gaming" target="_blank" class="inline-block mt-3 text-[#38BDF8] font-semibold hover:underline">🔗 Click here to see</a>
+        <p class="mt-2 text-sm text-[#FACC15]">⚠️ Note: This is a design showcase only, not a functional e-commerce site.</p>
       </div>
     </div>
   </section>
@@ -155,13 +168,33 @@
       <h3 class="text-2xl font-bold mb-8">Get in Touch</h3>
       <p class="mb-6">Feel free to reach out via email, phone, or the form below.</p>
       <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <p><strong>Email:</strong> <a href="mailto:abrahandejesusaparicio@gmail.com" class="hover:underline">abrahandejesusaparicio@gmail.com</a></p>
-          <p><strong>Phone:</strong> +507 6583-0384</p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/abrahan-aparicio-herrera" target="_blank" class="hover:underline">LinkedIn Profile</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/abrahandejesusaparicio-code" target="_blank" class="hover:underline">GitHub Profile</a></p>
+        <div class="space-y-4">
+          <p class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8-4H8m8 8H8m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <a href="mailto:abrahandejesusaparicio@gmail.com" class="hover:underline">abrahandejesusaparicio@gmail.com</a>
+          </p>
+          <p class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l3.6 7.59a1 1 0 00.9.41h7.58a1 1 0 00.9-.41L21 5H3z" />
+            </svg>
+            <span>+507 6583-0384</span>
+          </p>
+          <p class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761..."></path>
+            </svg>
+            <a href="https://www.linkedin.com/in/abrahan-aparicio-herrera" target="_blank" class="hover:underline">LinkedIn Profile</a>
+          </p>
+          <p class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 .297c-6.63 0-12 5.373..."></path>
+            </svg>
+            <a href="https://github.com/abrahandejesusaparicio-code" target="_blank" class="hover:underline">GitHub Profile</a>
+          </p>
         </div>
-        <!-- Simple mailto form -->
+        <!-- Mailto Form -->
         <form action="mailto:abrahandejesusaparicio@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
           <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded bg-gray-100 text-gray-900" required>
           <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded bg-gray-100 text-gray-900" required>
