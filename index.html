@@ -8,7 +8,8 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
-    /* Hover underline animation for navbar */
+
+    /* Navbar underline hover */
     .nav-link {
       position: relative;
       transition: color 0.3s;
@@ -26,15 +27,40 @@
     .nav-link:hover::after {
       width: 100%;
     }
+
+    /* 🔥 Wave Hover Animation */
+    .wave-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .wave-card::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(20,40,160,0.2) 0%, transparent 70%);
+      transform: rotate(25deg);
+      transition: top 0.6s ease;
+      z-index: 0;
+    }
+    .wave-card:hover::before {
+      top: -50%;
+    }
+    .wave-card * {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
-<!-- 🔥 Darker base look -->
-<body class="bg-gray-100 text-gray-800">
+<!-- 🔥 Dark mode -->
+<body class="bg-gray-900 text-gray-200">
 
   <!-- Navbar -->
-  <header class="fixed w-full bg-gray-900 text-white shadow-sm z-50">
+  <header class="fixed w-full bg-black shadow z-50">
     <nav class="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
-      <h1 class="font-bold text-xl text-[#1428A0]">Abrahan Aparicio</h1>
+      <h1 class="font-bold text-xl text-white">Abrahan Aparicio</h1>
       <ul class="flex space-x-6 text-sm font-medium">
         <li><a href="#about" class="nav-link hover:text-[#1428A0]">About</a></li>
         <li><a href="#skills" class="nav-link hover:text-[#1428A0]">Skills</a></li>
@@ -45,12 +71,12 @@
   </header>
 
   <!-- Hero -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-4 bg-gray-800 text-white">
-    <h2 class="text-4xl md:text-6xl font-bold mb-4">Abrahan De Jesús Aparicio Herrera</h2>
-    <p class="text-lg md:text-xl text-gray-300 mb-6">Bilingual Translator & Front-End Developer</p>
+  <section class="h-screen flex flex-col justify-center items-center text-center px-4 bg-gray-950">
+    <h2 class="text-4xl md:text-6xl font-bold mb-4 text-white">Abrahan De Jesús Aparicio Herrera</h2>
+    <p class="text-lg md:text-xl text-gray-400 mb-6">Bilingual Translator & Front-End Developer</p>
     <div class="flex space-x-4">
-      <a href="#projects" class="px-6 py-3 bg-[#1428A0] text-white rounded-lg hover:bg-blue-900 transition transform hover:scale-105">View My Work</a>
-      <a href="CV_Abrahan_Aparicio..docx" class="px-6 py-3 border border-gray-300 text-gray-200 rounded-lg hover:bg-gray-700 transition transform hover:scale-105">Download CV</a>
+      <a href="#projects" class="px-6 py-3 bg-[#1428A0] text-white rounded-lg hover:bg-blue-800 transition transform hover:scale-105">View My Work</a>
+      <a href="CV_Abrahan_Aparicio..docx" class="px-6 py-3 border border-gray-300 text-gray-200 rounded-lg hover:bg-gray-800 transition transform hover:scale-105">Download CV</a>
     </div>
   </section>
 
@@ -66,16 +92,16 @@
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="bg-gray-900 text-white py-20 px-6">
+  <section id="skills" class="bg-gray-800 py-20 px-6">
     <div class="max-w-5xl mx-auto">
       <h3 class="text-2xl font-bold mb-8 text-[#1428A0]">Skills</h3>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
-        <div class="p-6 bg-gray-800 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Translation (EN ↔ ES)</div>
-        <div class="p-6 bg-gray-800 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Proofreading & Editing</div>
-        <div class="p-6 bg-gray-800 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">HTML, CSS, JavaScript</div>
-        <div class="p-6 bg-gray-800 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">C++ Programming</div>
-        <div class="p-6 bg-gray-800 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Responsive Web Design</div>
-        <div class="p-6 bg-gray-800 rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Customer Service & Teamwork</div>
+        <div class="p-6 bg-gray-900 rounded-xl wave-card">Translation (EN ↔ ES)</div>
+        <div class="p-6 bg-gray-900 rounded-xl wave-card">Proofreading & Editing</div>
+        <div class="p-6 bg-gray-900 rounded-xl wave-card">HTML, CSS, JavaScript</div>
+        <div class="p-6 bg-gray-900 rounded-xl wave-card">C++ Programming</div>
+        <div class="p-6 bg-gray-900 rounded-xl wave-card">Responsive Web Design</div>
+        <div class="p-6 bg-gray-900 rounded-xl wave-card">Customer Service & Teamwork</div>
       </div>
     </div>
   </section>
@@ -85,32 +111,32 @@
     <h3 class="text-2xl font-bold mb-8 text-[#1428A0]">Projects</h3>
     <div class="grid md:grid-cols-2 gap-8">
       <!-- Project Card -->
-      <div class="p-6 border rounded-xl bg-gray-800 text-white shadow hover:shadow-lg transition transform hover:scale-105">
+      <div class="p-6 bg-gray-900 text-white rounded-xl wave-card shadow">
         <h4 class="font-semibold text-lg">Portfolio Website</h4>
         <p class="text-sm text-gray-400 mb-2">Personal Project</p>
         <p class="text-gray-300">A clean and minimalistic portfolio website built with HTML, TailwindCSS, and JavaScript. Showcases my translation and development work.</p>
-        <a href="#" class="inline-block mt-3 text-[#1428A0] hover:underline">View Project →</a>
+        <a href="#" class="inline-block mt-3 text-[#4C8CFF] hover:underline">View Project →</a>
       </div>
       <!-- Project Card -->
-      <div class="p-6 border rounded-xl bg-gray-800 text-white shadow hover:shadow-lg transition transform hover:scale-105">
+      <div class="p-6 bg-gray-900 text-white rounded-xl wave-card shadow">
         <h4 class="font-semibold text-lg">Local Business Website</h4>
         <p class="text-sm text-gray-400 mb-2">Freelance Work</p>
         <p class="text-gray-300">Developed and managed a responsive website for a small local market shop, enhancing their online presence.</p>
-        <a href="#" class="inline-block mt-3 text-[#1428A0] hover:underline">View Project →</a>
+        <a href="#" class="inline-block mt-3 text-[#4C8CFF] hover:underline">View Project →</a>
       </div>
-      <!-- 🔥 Gaming Project -->
-      <div class="p-6 border rounded-xl bg-gray-800 text-white shadow hover:shadow-lg transition transform hover:scale-105 md:col-span-2">
+      <!-- Gaming Project -->
+      <div class="p-6 bg-gray-900 text-white rounded-xl wave-card shadow md:col-span-2">
         <h4 class="font-semibold text-lg">E-Shop for Gaming Industry</h4>
         <p class="text-sm text-gray-400 mb-2">Personal Project</p>
         <img src="Gaming_website_pic..jpg" alt="Gaming Website" class="rounded-lg mb-4">
         <p class="text-gray-300">An online gaming shop concept showcasing sleek UI and responsive design for the gaming industry.</p>
-        <a href="https://abrahandejesusaparicio-code.github.io/sentinel-gaming" target="_blank" class="inline-block mt-3 text-[#1428A0] font-semibold hover:underline">🔗 Click here to see</a>
+        <a href="https://abrahandejesusaparicio-code.github.io/sentinel-gaming" target="_blank" class="inline-block mt-3 text-[#4C8CFF] font-semibold hover:underline">🔗 Click here to see</a>
       </div>
     </div>
   </section>
 
   <!-- Education -->
-  <section id="education" class="bg-gray-900 text-white py-20 px-6">
+  <section id="education" class="bg-gray-800 py-20 px-6">
     <div class="max-w-5xl mx-auto">
       <h3 class="text-2xl font-bold mb-8 text-[#1428A0]">Education</h3>
       <ul class="list-disc pl-6 text-gray-300 space-y-2">
@@ -124,8 +150,8 @@
   <section id="languages" class="max-w-5xl mx-auto py-20 px-6">
     <h3 class="text-2xl font-bold mb-8 text-[#1428A0]">Languages</h3>
     <div class="grid grid-cols-2 md:grid-cols-2 gap-6 text-center">
-      <div class="p-6 bg-gray-800 text-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">Spanish – Native</div>
-      <div class="p-6 bg-gray-800 text-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105">English – Native</div>
+      <div class="p-6 bg-gray-900 text-white rounded-xl wave-card">Spanish – Native</div>
+      <div class="p-6 bg-gray-900 text-white rounded-xl wave-card">English – Native</div>
     </div>
   </section>
 
@@ -152,7 +178,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-6 text-center text-gray-400 text-sm bg-black">
+  <footer class="py-6 text-center text-gray-500 text-sm bg-black">
     © 2025 Abrahan De Jesús Aparicio Herrera. All Rights Reserved.
   </footer>
 
