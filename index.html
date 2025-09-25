@@ -40,7 +40,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(20,40,160,0.2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(20,40,160,0.25) 0%, transparent 70%);
       transform: rotate(25deg);
       transition: top 0.6s ease;
       z-index: 0;
@@ -52,9 +52,24 @@
       position: relative;
       z-index: 1;
     }
+
+    /* Hero wave animation */
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 100px;
+      background: url('https://svgshare.com/i/uGZ.svg');
+      background-size: 50% 100px;
+      animation: waveMove 8s linear infinite;
+    }
+    @keyframes waveMove {
+      0% { background-position-x: 0; }
+      100% { background-position-x: 1000px; }
+    }
   </style>
 </head>
-<!-- 🔥 Dark mode -->
 <body class="bg-gray-900 text-gray-200">
 
   <!-- Navbar -->
@@ -71,13 +86,15 @@
   </header>
 
   <!-- Hero -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-4 bg-gray-950">
+  <section class="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-gray-950 overflow-hidden">
     <h2 class="text-4xl md:text-6xl font-bold mb-4 text-white">Abrahan De Jesús Aparicio Herrera</h2>
     <p class="text-lg md:text-xl text-gray-400 mb-6">Bilingual Translator & Front-End Developer</p>
     <div class="flex space-x-4">
       <a href="#projects" class="px-6 py-3 bg-[#1428A0] text-white rounded-lg hover:bg-blue-800 transition transform hover:scale-105">View My Work</a>
       <a href="CV_Abrahan_Aparicio..docx" class="px-6 py-3 border border-gray-300 text-gray-200 rounded-lg hover:bg-gray-800 transition transform hover:scale-105">Download CV</a>
     </div>
+    <!-- 🔥 Animated wave -->
+    <div class="wave"></div>
   </section>
 
   <!-- About -->
@@ -110,25 +127,18 @@
   <section id="projects" class="max-w-5xl mx-auto py-20 px-6">
     <h3 class="text-2xl font-bold mb-8 text-[#1428A0]">Projects</h3>
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Project Card -->
+      <!-- Portfolio Website -->
       <div class="p-6 bg-gray-900 text-white rounded-xl wave-card shadow">
         <h4 class="font-semibold text-lg">Portfolio Website</h4>
         <p class="text-sm text-gray-400 mb-2">Personal Project</p>
         <p class="text-gray-300">A clean and minimalistic portfolio website built with HTML, TailwindCSS, and JavaScript. Showcases my translation and development work.</p>
         <a href="#" class="inline-block mt-3 text-[#4C8CFF] hover:underline">View Project →</a>
       </div>
-      <!-- Project Card -->
-      <div class="p-6 bg-gray-900 text-white rounded-xl wave-card shadow">
-        <h4 class="font-semibold text-lg">Local Business Website</h4>
-        <p class="text-sm text-gray-400 mb-2">Freelance Work</p>
-        <p class="text-gray-300">Developed and managed a responsive website for a small local market shop, enhancing their online presence.</p>
-        <a href="#" class="inline-block mt-3 text-[#4C8CFF] hover:underline">View Project →</a>
-      </div>
       <!-- Gaming Project -->
       <div class="p-6 bg-gray-900 text-white rounded-xl wave-card shadow md:col-span-2">
         <h4 class="font-semibold text-lg">E-Shop for Gaming Industry</h4>
         <p class="text-sm text-gray-400 mb-2">Personal Project</p>
-        <img src="Gaming_website_pic..jpg" alt="Gaming Website" class="rounded-lg mb-4">
+        <img src="/Pictures/Gaming_website_pic..jpg" alt="Gaming Website" class="rounded-lg mb-4">
         <p class="text-gray-300">An online gaming shop concept showcasing sleek UI and responsive design for the gaming industry.</p>
         <a href="https://abrahandejesusaparicio-code.github.io/sentinel-gaming" target="_blank" class="inline-block mt-3 text-[#4C8CFF] font-semibold hover:underline">🔗 Click here to see</a>
       </div>
