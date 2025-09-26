@@ -144,10 +144,35 @@
       <h3 class="text-2xl font-bold mb-8" data-en="Get in Touch" data-es="Contáctame">Get in Touch</h3>
       <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-4">
-          <p class="flex items-center space-x-2"><span class="contact-icon">📧</span><a href="mailto:abrahandejesusaparicio@gmail.com">abrahandejesusaparicio@gmail.com</a></p>
-          <p class="flex items-center space-x-2"><span class="contact-icon">📞</span><span>+507 6583-0384</span></p>
-          <p class="flex items-center space-x-2"><span class="contact-icon">💼</span><a href="https://www.linkedin.com/in/abrahan-aparicio-herrera" target="_blank" data-en="LinkedIn Profile" data-es="Perfil de LinkedIn">LinkedIn Profile</a></p>
-          <p class="flex items-center space-x-2"><span class="contact-icon">💻</span><a href="https://github.com/abrahandejesusaparicio-code" target="_blank" data-en="GitHub Profile" data-es="Perfil de GitHub">GitHub Profile</a></p>
+          <!-- Email -->
+          <p class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <a href="mailto:abrahandejesusaparicio@gmail.com">abrahandejesusaparicio@gmail.com</a>
+          </p>
+          <!-- Phone -->
+          <p class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 010 1.414L9.414 9.414a16 16 0 006.172 6.172l2.293-2.293a1 1 0 011.414 0l2.414 2.414a1 1 0 01.293.707V19a2 2 0 01-2 2h-1C10.373 21 3 13.627 3 5z"/>
+            </svg>
+            <span>+507 6583-0384</span>
+          </p>
+          <!-- LinkedIn -->
+          <p class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 contact-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            <a href="https://www.linkedin.com/in/abrahan-aparicio-herrera" target="_blank" data-en="LinkedIn Profile" data-es="Perfil de LinkedIn">LinkedIn Profile</a>
+          </p>
+          <!-- GitHub -->
+          <p class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 contact-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.486 2 12.018c0 4.428 2.865 8.188 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.465-1.11-1.465-.907-.62.069-.608.069-.608 1.004.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.112-4.555-4.951 0-1.093.39-1.988 1.11-2.688-.111-.253-.481-1.272.105-2.65 0 0 .905-.29 2.963 1.085A10.26 10.26 0 0112 6.844c.916.004 1.84.124 2.704.365 2.057-1.375 2.96-1.085 2.96-1.085.588 1.378.218 2.397.107 2.65.693.7 1.108 1.595 1.108 2.688 0 3.847-2.337 4.695-4.563 4.944.36.31.681.92.681 1.855v2.751c0 .267.18.58.688.482A10.019 10.019 0 0022 12.018C22 6.486 17.523 2 12 2z" clip-rule="evenodd"/>
+            </svg>
+            <a href="https://github.com/abrahandejesusaparicio-code" target="_blank" data-en="GitHub Profile" data-es="Perfil de GitHub">GitHub Profile</a>
+          </p>
         </div>
         <form action="mailto:abrahandejesusaparicio@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
           <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded bg-gray-100 text-gray-900" required data-en-placeholder="Your Name" data-es-placeholder="Tu Nombre">
@@ -179,23 +204,18 @@
       typeSpeed: 50, backSpeed: 25, loop: true
     });
 
-    // CHANGE 2: helper to apply language + keep flags/button in sync
+    // helper to apply language + keep flags/button in sync
     function applyLanguage(lang) {
-      // Update all text nodes with data attributes
       document.querySelectorAll("[data-en]").forEach(el => {
         el.textContent = el.getAttribute(`data-${lang}`);
       });
-      // Update placeholders
       document.querySelectorAll("[data-en-placeholder]").forEach(el => {
         el.placeholder = el.getAttribute(`data-${lang}-placeholder`);
       });
-      // Update button (flag + next language text)
       const flagEl = document.getElementById("flag");
       const langTextEl = document.getElementById("langText");
       if (flagEl) flagEl.textContent = (lang === "en") ? "🇬🇧" : "🇪🇸";
       if (langTextEl) langTextEl.textContent = (lang === "en") ? "ES" : "EN";
-
-      // Refresh Typed.js strings to selected language
       if (typed && typeof typed.destroy === "function") typed.destroy();
       const strings = (lang === "en")
         ? ["Bilingual Translator", "Front-End Developer", "Problem Solver"]
@@ -216,7 +236,6 @@
       applyLanguage(currentLang);
     });
 
-    // CHANGE 3 (bug fix): ensure EN content appears on first load
     if (document.readyState !== "loading") {
       applyLanguage("en");
     } else {
