@@ -32,11 +32,11 @@
     .particle { position: absolute; width:4px; height:4px; background:#38BDF8; border-radius:50%; opacity:0.7; animation: float 10s infinite linear; }
     @keyframes float { from { transform: translateY(0); opacity:0.7; } to { transform: translateY(-100vh); opacity:0; } }
     .contact-icon:hover { transform: scale(1.2); color: #FACC15; transition: 0.3s; }
-    #backToTop { position:fixed; bottom:25px; right:25px; background:#2563EB; color:white; border-radius:50%; padding:18px; font-size:1.5rem; display:none; cursor:pointer; z-index:50; transition:transform 0.3s, background 0.3s; }
+    #backToTop { position:fixed; bottom:25px; right:25px; background:#2563EB; color:white; border-radius:50%; padding:14px; display:none; cursor:pointer; z-index:50; transition:transform 0.3s, background 0.3s; }
     #backToTop:hover { transform:scale(1.25); background:#1E40AF; }
     #about { transition: transform 0.4s, box-shadow 0.4s; }
     #about:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0px 8px 20px rgba(56,189,248,0.2); }
-    #langSwitch { background:#1E293B; color:#F8FAFC; padding:6px 12px; border-radius:6px; font-size:0.9rem; cursor:pointer; transition:background 0.3s; }
+    #langSwitch { background:#1E293B; color:#F8FAFC; padding:6px 12px; border-radius:6px; font-size:0.9rem; cursor:pointer; transition:background 0.3s; display:flex; align-items:center; gap:6px; }
     #langSwitch:hover { background:#2563EB; }
   </style>
 </head>
@@ -47,18 +47,26 @@
     <nav class="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
       <h1 class="font-bold text-xl text-[#38BDF8]" data-en="Abrahan Aparicio" data-es="Abrahan Aparicio">Abrahan Aparicio</h1>
       <ul class="flex space-x-6 text-sm font-medium">
+        <!-- CHANGE: Added Home SVG -->
+        <li>
+          <a href="#hero" class="nav-link hover:text-[#38BDF8]" aria-label="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M4 10v10h16V10"/>
+            </svg>
+          </a>
+        </li>
         <li><a href="#about" class="nav-link hover:text-[#38BDF8]" data-en="About" data-es="Sobre mí">About</a></li>
         <li><a href="#skills" class="nav-link hover:text-[#38BDF8]" data-en="Skills" data-es="Habilidades">Skills</a></li>
         <li><a href="#projects" class="nav-link hover:text-[#38BDF8]" data-en="Projects" data-es="Proyectos">Projects</a></li>
         <li><a href="#contact" class="nav-link hover:text-[#38BDF8]" data-en="Contact" data-es="Contacto">Contact</a></li>
       </ul>
-      <!-- CHANGE 1: add flags to button -->
+      <!-- CHANGE: Real flags in button -->
       <button id="langSwitch"><span id="flag">🇬🇧</span> <span id="langText">ES</span></button>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-4 hero-bg relative" data-aos="zoom-in">
+  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4 hero-bg relative" data-aos="zoom-in">
     <div class="particles">
       <div class="particle" style="left:10%; animation-duration:12s;"></div>
       <div class="particle" style="left:30%; animation-duration:15s;"></div>
@@ -190,7 +198,12 @@
   </footer>
 
   <!-- Back to Top -->
-  <button id="backToTop">⬆️</button>
+  <!-- CHANGE: Replaced emoji with SVG arrow -->
+  <button id="backToTop" aria-label="Back to Top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
