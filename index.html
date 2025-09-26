@@ -61,7 +61,11 @@
         <li><a href="#contact" class="nav-link hover:text-[#38BDF8]" data-en="Contact" data-es="Contacto">Contact</a></li>
       </ul>
       <!-- CHANGE: Real flags in button -->
-      <button id="langSwitch"><span id="flag">🇬🇧</span> <span id="langText">ES</span></button>
+     <button id="langSwitch">
+  <img id="flag" src="https://flagcdn.com/gb.svg" alt="English Flag" class="w-5 h-5">
+  <span id="langText">ES</span>
+</button>
+
     </nav>
   </header>
 
@@ -227,7 +231,12 @@
       });
       const flagEl = document.getElementById("flag");
       const langTextEl = document.getElementById("langText");
-      if (flagEl) flagEl.textContent = (lang === "en") ? "🇬🇧" : "🇪🇸";
+      if (flagEl) {
+        flagEl.src = (lang === "en")
+     ? "https://flagcdn.com/gb.svg"   // English
+          : "https://flagcdn.com/es.svg";  // Spanish
+      flagEl.alt = (lang === "en") ? "English Flag" : "Spanish Flag";
+}
       if (langTextEl) langTextEl.textContent = (lang === "en") ? "ES" : "EN";
       if (typed && typeof typed.destroy === "function") typed.destroy();
       const strings = (lang === "en")
