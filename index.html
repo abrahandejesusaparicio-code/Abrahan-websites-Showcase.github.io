@@ -186,12 +186,34 @@
             <a href="https://github.com/abrahandejesusaparicio-code" target="_blank" data-en="GitHub Profile" data-es="Perfil de GitHub">GitHub Profile</a>
           </p>
         </div>
-        <form action="mailto:abrahandejesusaparicio@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
-          <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded bg-gray-100 text-gray-900" required data-en-placeholder="Your Name" data-es-placeholder="Tu Nombre">
-          <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded bg-gray-100 text-gray-900" required data-en-placeholder="Your Email" data-es-placeholder="Tu Correo">
-          <textarea name="message" placeholder="Your Message" class="w-full p-3 rounded bg-gray-100 text-gray-900" rows="4" required data-en-placeholder="Your Message" data-es-placeholder="Tu Mensaje"></textarea>
-          <button type="submit" class="w-full py-3 bg-black text-white rounded-lg hover:bg-gray-800" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
-        </form>
+       <form action="https://formsubmit.co/abrahandejesusaparicio@gmail.com" method="POST" class="space-y-4">
+  <!-- Hidden fields -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_subject" value="New message from your portfolio website">
+  <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html"> <!-- optional -->
+
+  <!-- Visible fields -->
+  <input type="text" name="name" placeholder="Your Name"
+         class="w-full p-3 rounded bg-gray-100 text-gray-900"
+         required data-en-placeholder="Your Name" data-es-placeholder="Tu Nombre">
+
+  <input type="email" name="email" placeholder="Your Email"
+         class="w-full p-3 rounded bg-gray-100 text-gray-900"
+         required data-en-placeholder="Your Email" data-es-placeholder="Tu Correo">
+
+  <textarea name="message" placeholder="Your Message"
+            class="w-full p-3 rounded bg-gray-100 text-gray-900"
+            rows="4" required
+            data-en-placeholder="Your Message" data-es-placeholder="Tu Mensaje"></textarea>
+
+  <button type="submit"
+          class="w-full py-3 bg-black text-white rounded-lg hover:bg-gray-800"
+          data-en="Send Message" data-es="Enviar Mensaje">
+    Send Message
+  </button>
+</form>
+
       </div>
     </div>
   </section>
