@@ -107,9 +107,18 @@
       display: none;
       cursor: pointer;
       z-index: 50;
-      transition: transform 0.3s;
+      transition: transform 0.3s, background 0.3s;
     }
     #backToTop:hover { transform: scale(1.25); background: #1E40AF; }
+
+    /* About hover effect */
+    #about {
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    #about:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0px 8px 20px rgba(56, 189, 248, 0.2);
+    }
   </style>
 </head>
 <body class="bg-[#0F172A] text-[#F8FAFC]">
@@ -157,59 +166,17 @@
     </p>
   </section>
 
-  <!-- Skills with Progress Bars -->
+  <!-- Skills -->
   <section id="skills" class="bg-[#1E293B] py-20 px-6" data-aos="fade-up">
     <div class="max-w-5xl mx-auto">
       <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]">Skills</h3>
-      <div class="space-y-6">
-        <div>
-          <p class="flex justify-between text-[#E2E8F0] mb-1">
-            <span>Translation (EN ↔ ES)</span><span>95%</span>
-          </p>
-          <div class="w-full bg-[#0F172A] rounded-full h-3 overflow-hidden">
-            <div class="bg-[#38BDF8] h-3 rounded-full" style="width:95%" data-aos="zoom-in"></div>
-          </div>
-        </div>
-        <div>
-          <p class="flex justify-between text-[#E2E8F0] mb-1">
-            <span>Proofreading & Editing</span><span>90%</span>
-          </p>
-          <div class="w-full bg-[#0F172A] rounded-full h-3 overflow-hidden">
-            <div class="bg-[#38BDF8] h-3 rounded-full" style="width:90%" data-aos="zoom-in"></div>
-          </div>
-        </div>
-        <div>
-          <p class="flex justify-between text-[#E2E8F0] mb-1">
-            <span>HTML, CSS, JavaScript</span><span>80%</span>
-          </p>
-          <div class="w-full bg-[#0F172A] rounded-full h-3 overflow-hidden">
-            <div class="bg-[#38BDF8] h-3 rounded-full" style="width:80%" data-aos="zoom-in"></div>
-          </div>
-        </div>
-        <div>
-          <p class="flex justify-between text-[#E2E8F0] mb-1">
-            <span>C++ Programming</span><span>70%</span>
-          </p>
-          <div class="w-full bg-[#0F172A] rounded-full h-3 overflow-hidden">
-            <div class="bg-[#38BDF8] h-3 rounded-full" style="width:70%" data-aos="zoom-in"></div>
-          </div>
-        </div>
-        <div>
-          <p class="flex justify-between text-[#E2E8F0] mb-1">
-            <span>Responsive Web Design</span><span>85%</span>
-          </p>
-          <div class="w-full bg-[#0F172A] rounded-full h-3 overflow-hidden">
-            <div class="bg-[#38BDF8] h-3 rounded-full" style="width:85%" data-aos="zoom-in"></div>
-          </div>
-        </div>
-        <div>
-          <p class="flex justify-between text-[#E2E8F0] mb-1">
-            <span>Customer Service & Teamwork</span><span>88%</span>
-          </p>
-          <div class="w-full bg-[#0F172A] rounded-full h-3 overflow-hidden">
-            <div class="bg-[#38BDF8] h-3 rounded-full" style="width:88%" data-aos="zoom-in"></div>
-          </div>
-        </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
+        <div class="p-6 rounded-xl shadow wave-card">Translation (EN ↔ ES)</div>
+        <div class="p-6 rounded-xl shadow wave-card">Proofreading & Editing</div>
+        <div class="p-6 rounded-xl shadow wave-card">HTML, CSS, JavaScript</div>
+        <div class="p-6 rounded-xl shadow wave-card">C++ Programming</div>
+        <div class="p-6 rounded-xl shadow wave-card">Responsive Web Design</div>
+        <div class="p-6 rounded-xl shadow wave-card">Customer Service & Teamwork</div>
       </div>
     </div>
   </section>
