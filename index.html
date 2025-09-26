@@ -7,6 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- AOS (Animate on Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
@@ -23,17 +25,18 @@
       bottom: -4px;
       width: 0;
       height: 2px;
-      background: #38BDF8; /* Cyan accent */
+      background: #38BDF8;
       transition: width 0.3s ease;
     }
-    .nav-link:hover::after {
-      width: 100%;
-    }
+    .nav-link:hover::after { width: 100%; }
 
     /* Wave Hover Effect */
     .wave-card {
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(10px);
+      background: rgba(30, 41, 59, 0.7); /* glassmorphism */
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     .wave-card::before {
       content: "";
@@ -47,25 +50,65 @@
       transition: top 0.6s ease;
       z-index: 0;
     }
-    .wave-card:hover::before {
-      top: -50%;
-    }
-    .wave-card * {
-      position: relative;
-      z-index: 1;
-    }
+    .wave-card:hover::before { top: -50%; }
+    .wave-card * { position: relative; z-index: 1; }
 
-    /* 🔥 Hero Animated Gradient Background */
+    /* Hero Gradient */
     .hero-bg {
       background: linear-gradient(-45deg, #0f172a, #1e293b, #2563eb, #38bdf8);
       background-size: 400% 400%;
       animation: gradientMove 15s ease infinite;
+      position: relative;
+      overflow: hidden;
     }
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
+    /* Particle effect */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #38BDF8;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: float 10s infinite linear;
+    }
+    @keyframes float {
+      from { transform: translateY(0); opacity: 0.7; }
+      to { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    /* Hover icon animations */
+    .contact-icon:hover { transform: scale(1.2); color: #FACC15; transition: 0.3s; }
+
+    /* Back to Top */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2563EB;
+      color: white;
+      border-radius: 50%;
+      padding: 12px;
+      display: none;
+      cursor: pointer;
+      z-index: 50;
+      transition: transform 0.3s;
+    }
+    #backToTop:hover { transform: scale(1.2); background: #1E40AF; }
   </style>
 </head>
 <body class="bg-[#0F172A] text-[#F8FAFC]">
@@ -84,12 +127,20 @@
   </header>
 
   <!-- Hero -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-4 hero-bg" data-aos="fade-up">
-    <h2 class="text-4xl md:text-6xl font-bold mb-4">Abrahan De Jesús Aparicio Herrera</h2>
-    <p class="text-lg md:text-xl text-[#94A3B8] mb-6">Bilingual Translator & Front-End Developer</p>
-    <div class="flex space-x-4">
+  <section class="h-screen flex flex-col justify-center items-center text-center px-4 hero-bg relative" data-aos="zoom-in">
+    <div class="particles">
+      <div class="particle" style="left:10%; animation-duration:12s;"></div>
+      <div class="particle" style="left:30%; animation-duration:15s;"></div>
+      <div class="particle" style="left:50%; animation-duration:10s;"></div>
+      <div class="particle" style="left:70%; animation-duration:18s;"></div>
+      <div class="particle" style="left:90%; animation-duration:20s;"></div>
+    </div>
+    <h2 class="text-4xl md:text-6xl font-bold mb-4 relative z-10">Abrahan De Jesús Aparicio Herrera</h2>
+    <p class="text-lg md:text-xl text-[#94A3B8] mb-6 relative z-10">
+      <span id="typed"></span>
+    </p>
+    <div class="flex space-x-4 relative z-10">
       <a href="#projects" class="px-6 py-3 bg-[#2563EB] text-white rounded-lg hover:bg-[#1E40AF] transition transform hover:scale-105">View My Work</a>
-      <!-- ✅ Fixed Download CV button -->
       <a href="Files/CV_Abrahan_Aparicio..pdf" download class="px-6 py-3 border border-gray-400 text-[#F8FAFC] rounded-lg hover:bg-[#1E293B] transition transform hover:scale-105">Download CV</a>
     </div>
   </section>
@@ -110,12 +161,12 @@
     <div class="max-w-5xl mx-auto">
       <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]">Skills</h3>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
-        <div class="p-6 bg-[#0F172A] rounded-xl shadow wave-card">Translation (EN ↔ ES)</div>
-        <div class="p-6 bg-[#0F172A] rounded-xl shadow wave-card">Proofreading & Editing</div>
-        <div class="p-6 bg-[#0F172A] rounded-xl shadow wave-card">HTML, CSS, JavaScript</div>
-        <div class="p-6 bg-[#0F172A] rounded-xl shadow wave-card">C++ Programming</div>
-        <div class="p-6 bg-[#0F172A] rounded-xl shadow wave-card">Responsive Web Design</div>
-        <div class="p-6 bg-[#0F172A] rounded-xl shadow wave-card">Customer Service & Teamwork</div>
+        <div class="p-6 rounded-xl shadow wave-card">Translation (EN ↔ ES)</div>
+        <div class="p-6 rounded-xl shadow wave-card">Proofreading & Editing</div>
+        <div class="p-6 rounded-xl shadow wave-card">HTML, CSS, JavaScript</div>
+        <div class="p-6 rounded-xl shadow wave-card">C++ Programming</div>
+        <div class="p-6 rounded-xl shadow wave-card">Responsive Web Design</div>
+        <div class="p-6 rounded-xl shadow wave-card">Customer Service & Teamwork</div>
       </div>
     </div>
   </section>
@@ -124,15 +175,13 @@
   <section id="projects" class="max-w-5xl mx-auto py-20 px-6" data-aos="fade-left">
     <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]">Projects</h3>
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Portfolio Website -->
-      <div class="p-6 bg-[#1E293B] rounded-xl shadow wave-card">
+      <div class="p-6 rounded-xl shadow wave-card" data-aos="flip-left">
         <h4 class="font-semibold text-lg">Portfolio Website</h4>
         <p class="text-sm text-[#94A3B8] mb-2">Personal Project</p>
-        <p class="text-[#E2E8F0]">A clean and minimalistic portfolio website built with HTML, TailwindCSS, and JavaScript. Showcases my translation and development work.</p>
+        <p class="text-[#E2E8F0]">A clean and minimalistic portfolio website built with HTML, TailwindCSS, and JavaScript.</p>
         <a href="#" class="inline-block mt-3 text-[#38BDF8] hover:underline">View Project →</a>
       </div>
-      <!-- Gaming Project -->
-      <div class="p-6 bg-[#1E293B] rounded-xl shadow wave-card md:col-span-2">
+      <div class="p-6 rounded-xl shadow wave-card md:col-span-2" data-aos="flip-up">
         <h4 class="font-semibold text-lg">E-Shop for Gaming Industry</h4>
         <p class="text-sm text-[#94A3B8] mb-2">Design Showcase</p>
         <img src="Pictures/Gaming_website_pic..jpg" alt="Gaming Website" class="rounded-lg mb-4">
@@ -157,9 +206,9 @@
   <!-- Languages -->
   <section id="languages" class="max-w-5xl mx-auto py-20 px-6" data-aos="fade-right">
     <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]">Languages</h3>
-    <div class="grid grid-cols-2 md:grid-cols-2 gap-6 text-center">
-      <div class="p-6 bg-[#1E293B] rounded-xl shadow wave-card">Spanish – Native</div>
-      <div class="p-6 bg-[#1E293B] rounded-xl shadow wave-card">English – Native</div>
+    <div class="grid grid-cols-2 gap-6 text-center">
+      <div class="p-6 rounded-xl shadow wave-card">Spanish – Native</div>
+      <div class="p-6 rounded-xl shadow wave-card">English – Native</div>
     </div>
   </section>
 
@@ -167,35 +216,25 @@
   <section id="contact" class="bg-[#2563EB] text-white py-20 px-6" data-aos="fade-up">
     <div class="max-w-5xl mx-auto">
       <h3 class="text-2xl font-bold mb-8">Get in Touch</h3>
-      <p class="mb-6">Feel free to reach out via email, phone, or the form below.</p>
       <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-4">
           <p class="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8-4H8m8 8H8m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
+            <span class="contact-icon">📧</span>
             <a href="mailto:abrahandejesusaparicio@gmail.com" class="hover:underline">abrahandejesusaparicio@gmail.com</a>
           </p>
           <p class="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l3.6 7.59a1 1 0 00.9.41h7.58a1 1 0 00.9-.41L21 5H3z" />
-            </svg>
+            <span class="contact-icon">📞</span>
             <span>+507 6583-0384</span>
           </p>
           <p class="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.761..."></path>
-            </svg>
+            <span class="contact-icon">💼</span>
             <a href="https://www.linkedin.com/in/abrahan-aparicio-herrera" target="_blank" class="hover:underline">LinkedIn Profile</a>
           </p>
           <p class="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 .297c-6.63 0-12 5.373..."></path>
-            </svg>
+            <span class="contact-icon">💻</span>
             <a href="https://github.com/abrahandejesusaparicio-code" target="_blank" class="hover:underline">GitHub Profile</a>
           </p>
         </div>
-        <!-- Mailto Form -->
         <form action="mailto:abrahandejesusaparicio@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
           <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded bg-gray-100 text-gray-900" required>
           <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded bg-gray-100 text-gray-900" required>
@@ -211,13 +250,29 @@
     © 2025 Abrahan De Jesús Aparicio Herrera. All Rights Reserved.
   </footer>
 
-  <!-- AOS init -->
+  <!-- Back to Top -->
+  <button id="backToTop">⬆️</button>
+
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
+    AOS.init({ duration: 1000, once: true });
+
+    // Typed.js
+    var typed = new Typed("#typed", {
+      strings: ["Bilingual Translator", "Front-End Developer", "Problem Solver"],
+      typeSpeed: 50,
+      backSpeed: 25,
+      loop: true
     });
+
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) { backToTop.style.display = "block"; }
+      else { backToTop.style.display = "none"; }
+    });
+    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   </script>
 </body>
 </html>
