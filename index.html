@@ -62,10 +62,9 @@
       </ul>
       <!-- CHANGE: Real flags in button -->
      <button id="langSwitch">
-  <img id="flag" src="https://flagcdn.com/gb.svg" alt="English Flag" class="w-5 h-5">
-  <span id="langText">ES</span>
-</button>
-
+        <img id="flag" src="https://flagcdn.com/gb.svg" alt="English Flag" class="w-5 h-5">
+        <span id="langText">ES</span>
+     </button>
     </nav>
   </header>
 
@@ -82,7 +81,8 @@
     <p class="text-lg md:text-xl text-[#94A3B8] mb-6 relative z-10"><span id="typed"></span></p>
     <div class="flex space-x-4 relative z-10">
       <a href="#projects" class="px-6 py-3 bg-[#2563EB] text-white rounded-lg hover:bg-[#1E40AF]" data-en="View My Work" data-es="Ver mis trabajos">View My Work</a>
-      <a href="Files/CV_Abrahan_Aparicio..pdf" download class="px-6 py-3 border border-gray-400 text-[#F8FAFC] rounded-lg hover:bg-[#1E293B]" data-en="Download CV" data-es="Descargar CV">Download CV</a>
+      <!-- CV button auto-switches -->
+      <a id="cvButton" href="Files/CV_Abrahan_Aparicio..pdf" download class="px-6 py-3 border border-gray-400 text-[#F8FAFC] rounded-lg hover:bg-[#1E293B]" data-en="Download CV" data-es="Descargar CV">Download CV</a>
     </div>
   </section>
 
@@ -202,7 +202,6 @@
   </footer>
 
   <!-- Back to Top -->
-  <!-- CHANGE: Replaced emoji with SVG arrow -->
   <button id="backToTop" aria-label="Back to Top">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
@@ -212,16 +211,16 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // AOS with scroll-up effect (mirror:true already set)
+    // AOS
     AOS.init({ duration: 1000, once: false, mirror: true });
 
-    // Typed.js (English default)
+    // Typed.js
     let typed = new Typed("#typed", {
       strings: ["Bilingual Translator", "Front-End Developer", "Problem Solver"],
       typeSpeed: 50, backSpeed: 25, loop: true
     });
 
-    // helper to apply language + keep flags/button in sync
+    // Language apply
     function applyLanguage(lang) {
       document.querySelectorAll("[data-en]").forEach(el => {
         el.textContent = el.getAttribute(`data-${lang}`);
@@ -233,11 +232,21 @@
       const langTextEl = document.getElementById("langText");
       if (flagEl) {
         flagEl.src = (lang === "en")
-     ? "https://flagcdn.com/gb.svg"   // English
-          : "https://flagcdn.com/es.svg";  // Spanish
-      flagEl.alt = (lang === "en") ? "English Flag" : "Spanish Flag";
-}
+          ? "https://flagcdn.com/gb.svg"
+          : "https://flagcdn.com/es.svg";
+        flagEl.alt = (lang === "en") ? "English Flag" : "Spanish Flag";
+      }
       if (langTextEl) langTextEl.textContent = (lang === "en") ? "ES" : "EN";
+
+      // Auto switch CV
+      const cvButton = document.getElementById("cvButton");
+      if (cvButton) {
+        cvButton.href = (lang === "en")
+          ? "Files/CV_Abrahan_Aparicio..pdf"
+          : "Files/CV_Abrahan_Aparicio_ES..pdf";
+      }
+
+      // Typed switch
       if (typed && typeof typed.destroy === "function") typed.destroy();
       const strings = (lang === "en")
         ? ["Bilingual Translator", "Front-End Developer", "Problem Solver"]
@@ -250,7 +259,7 @@
     window.addEventListener("scroll", () => backToTop.style.display = window.scrollY > 300 ? "block" : "none");
     backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-    // Language Switch
+    // Language switch
     let currentLang = "en";
     const switchBtn = document.getElementById("langSwitch");
     switchBtn.addEventListener("click", () => {
