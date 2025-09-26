@@ -38,16 +38,9 @@
     #about:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0px 8px 20px rgba(56,189,248,0.2); }
     #langSwitch { background:#1E293B; color:#F8FAFC; padding:6px 12px; border-radius:6px; font-size:0.9rem; cursor:pointer; transition:background 0.3s; display:flex; align-items:center; gap:6px; }
     #langSwitch:hover { background:#2563EB; }
-
-    #education li:hover, #languages div:hover {
-       transform: translateY(-6px) scale(1.02);
-          transition: transform 0.4s, box-shadow 0.4s;
-                box-shadow: 0px 10px 25px rgba(56,189,248,0.25);
-    
   </style>
 </head>
-
-}
+<body class="bg-[#0F172A] text-[#F8FAFC]">
 
   <!-- Navbar -->
   <header class="fixed w-full bg-[#0F172A] shadow z-50">
@@ -138,38 +131,24 @@
   </section>
 
   <!-- Education -->
- <section id="education" class="bg-[#0F172A] py-20 px-6">
-  <div class="max-w-5xl mx-auto">
-    <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]" data-en="Education" data-es="Educación">Education</h3>
-    <ul class="grid md:grid-cols-2 gap-6">
-      <li class="p-6 rounded-xl shadow wave-card" data-aos="fade-up" data-aos-delay="100"
-          data-en="International High School Diploma – Calvert Academy, U.S. Program (2025)"
-          data-es="Diploma de Bachillerato Internacional – Calvert Academy, Programa de EE.UU. (2025)">
-        International High School Diploma – Calvert Academy, U.S. Program (2025)
-      </li>
-      <li class="p-6 rounded-xl shadow wave-card" data-aos="fade-up" data-aos-delay="300"
-          data-en="Coronado International School (2025)"
-          data-es="Coronado International School (2025)">
-        Coronado International School (2025)
-      </li>
-    </ul>
-  </div>
-</section>
+  <section id="education" class="bg-[#0F172A] py-20 px-6" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]" data-en="Education" data-es="Educación">Education</h3>
+      <ul class="list-disc pl-6 text-[#E2E8F0] space-y-2">
+        <li data-en="International High School Diploma – Calvert Academy, U.S. Program (2025)" data-es="Diploma de Bachillerato Internacional – Calvert Academy, Programa de EE.UU. (2025)">International High School Diploma – Calvert Academy, U.S. Program (2025)</li>
+        <li data-en="Coronado International School (2025)" data-es="Coronado International School (2025)">Coronado International School (2025)</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- Languages -->
- <section id="languages" class="max-w-5xl mx-auto py-20 px-6">
-  <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]" data-en="Languages" data-es="Idiomas">Languages</h3>
-  <div class="grid grid-cols-2 gap-6 text-center">
-    <div class="p-6 rounded-xl shadow wave-card" data-aos="zoom-in" data-aos-delay="100"
-         data-en="Spanish – Native" data-es="Español – Nativo">
-      Spanish – Native
+  <section id="languages" class="max-w-5xl mx-auto py-20 px-6" data-aos="fade-right">
+    <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]" data-en="Languages" data-es="Idiomas">Languages</h3>
+    <div class="grid grid-cols-2 gap-6 text-center">
+      <div class="p-6 rounded-xl shadow wave-card" data-en="Spanish – Native" data-es="Español – Nativo">Spanish – Native</div>
+      <div class="p-6 rounded-xl shadow wave-card" data-en="English – Native" data-es="Inglés – Nativo">English – Native</div>
     </div>
-    <div class="p-6 rounded-xl shadow wave-card" data-aos="zoom-in" data-aos-delay="300"
-         data-en="English – Native" data-es="Inglés – Nativo">
-      English – Native
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Contact -->
   <section id="contact" class="bg-[#2563EB] text-white py-20 px-6" data-aos="fade-up">
