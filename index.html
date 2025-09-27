@@ -10,6 +10,17 @@
   <!-- Typed.js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
+    /* Mobile menu smooth animation */
+#mobileMenu {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+#mobileMenu.flex {
+  transform: scale(1);
+  opacity: 1;
+}
     body { font-family: 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
     .nav-link { position: relative; transition: color 0.3s; }
