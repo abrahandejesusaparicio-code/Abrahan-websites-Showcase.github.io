@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-en="Pricing — Abrahan Aparicio" data-es="Precios — Abrahan Aparicio">Pricing — Abrahan Aparicio</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+    html { scroll-behavior: smooth; }
+    .hero-bg { background: linear-gradient(-45deg, #0f172a, #1e293b, #2563eb, #38bdf8); background-size: 400% 400%; animation: gradientMove 15s ease infinite; }
+    @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    .wave-card { position: relative; overflow: hidden; backdrop-filter: blur(10px); background: rgba(30,41,59,0.7); border: 1px solid rgba(255,255,255,0.08); transition: transform .3s, box-shadow .3s, border-color .3s; }
+    .wave-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 10px 24px rgba(56,189,248,.25); border-color: rgba(56,189,248,.45); }
+    .btn-primary { background:#2563EB; color:#fff; }
+    .btn-primary:hover { background:#1E40AF; }
+    .btn-ghost { border:1px solid rgba(148,163,184,.4); color:#F8FAFC; }
+    .btn-ghost:hover { background:#1E293B; }
+    #langSwitch { background:#1E293B; color:#F8FAFC; padding:6px 12px; border-radius:8px; font-size:.9rem; display:flex; align-items:center; gap:6px; transition: background .25s; }
+    #langSwitch:hover { background:#2563EB; }
+  </style>
+</head>
+<body class="bg-[#0F172A] text-[#F8FAFC]">
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-[#0F172A]/95 backdrop-blur border-b border-white/10 z-50">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
+      <a href="index.html" class="font-bold text-lg sm:text-xl text-[#38BDF8] hover:opacity-90 transition" data-en="← Back to Portfolio" data-es="← Volver al Portafolio">← Back to Portfolio</a>
+      <div class="flex items-center gap-4">
+        <span class="hidden sm:inline text-sm text-slate-300" data-en="Pricing" data-es="Precios">Pricing</span>
+        <button id="langSwitch">
+          <img id="flag" src="https://flagcdn.com/gb.svg" alt="English Flag" class="w-5 h-5">
+          <span id="langText">ES</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-bg pt-28 pb-16">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-4" data-en="Transparent Pricing" data-es="Precios Transparentes">Transparent Pricing</h1>
+      <p class="text-slate-200/90 max-w-2xl mx-auto" data-en="Simple packages for websites and ongoing care. No surprises." data-es="Paquetes simples para sitios web y mantenimiento continuo. Sin sorpresas.">
+        Simple packages for websites and ongoing care. No surprises.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3 justify-center">
+        <a href="#project-packages" class="px-5 py-3 rounded-lg btn-primary text-sm font-semibold">Packages</a>
+        <a href="#maintenance" class="px-5 py-3 rounded-lg btn-ghost text-sm font-semibold" data-en="Maintenance" data-es="Mantenimiento">Maintenance</a>
+        <a href="#faq" class="px-5 py-3 rounded-lg btn-ghost text-sm font-semibold">FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Packages -->
+  <section id="project-packages" class="py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-extrabold mb-10 text-[#38BDF8]" data-en="Website Packages" data-es="Paquetes de Sitio Web">Website Packages</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Starter -->
+        <div class="wave-card p-6 rounded-2xl" data-aos="fade-up">
+          <h3 class="text-2xl font-bold mb-1" data-en="Starter" data-es="Starter">Starter</h3>
+          <p class="text-slate-300 mb-4" data-en="Great for a clean, fast single-page presence." data-es="Ideal para una presencia limpia y rápida de una sola página.">
+            Great for a clean, fast single-page presence.
+          </p>
+          <div class="text-4xl font-extrabold mb-4">$399</div>
+          <ul class="space-y-2 text-slate-200">
+            <li>• <span data-en="Single-page site (Home + sections)" data-es="Sitio de una página (Inicio + secciones)">Single-page site (Home + sections)</span></li>
+            <li>• <span data-en="Responsive, modern UI (Tailwind)" data-es="UI moderna y responsiva (Tailwind)">Responsive, modern UI (Tailwind)</span></li>
+            <li>• <span data-en="Basic animations & AOS" data-es="Animaciones básicas y AOS">Basic animations & AOS</span></li>
+            <li>• <span data-en="Contact form (front-end only)" data-es="Formulario de contacto (solo front-end)">Contact form (front-end only)</span></li>
+            <li>• <span data-en="Delivery in 3–5 days" data-es="Entrega en 3–5 días">Delivery in 3–5 days</span></li>
+          </ul>
+        </div>
+
+        <!-- Pro -->
+        <div class="wave-card p-6 rounded-2xl border-2 border-[#38BDF8]/50" data-aos="fade-up" data-aos-delay="100">
+          <div class="inline-block px-3 py-1 mb-3 text-xs rounded-full bg-[#38BDF8]/15 text-[#38BDF8]" data-en="Most Popular" data-es="Más Popular">Most Popular</div>
+          <h3 class="text-2xl font-bold mb-1" data-en="Pro" data-es="Pro">Pro</h3>
+          <p class="text-slate-300 mb-4" data-en="Multi-section site with enhanced visuals & polish." data-es="Sitio multi-sección con visuales y acabado mejorados.">
+            Multi-section site with enhanced visuals & polish.
+          </p>
+          <div class="text-4xl font-extrabold mb-4">$899</div>
+          <ul class="space-y-2 text-slate-200">
+            <li>• <span data-en="Up to 6 sections/pages" data-es="Hasta 6 secciones/páginas">Up to 6 sections/pages</span></li>
+            <li>• <span data-en="Hero video or image slider" data-es="Video en el héroe o slider de imágenes">Hero video or image slider</span></li>
+            <li>• <span data-en="Hover effects & micro-interactions" data-es="Efectos hover y micro-interacciones">Hover effects & micro-interactions</span></li>
+            <li>• <span data-en="Basic SEO (meta, alt, semantic)" data-es="SEO básico (meta, alt, semántica)">Basic SEO (meta, alt, semantic)</span></li>
+            <li>• <span data-en="Delivery in 1–2 weeks" data-es="Entrega en 1–2 semanas">Delivery in 1–2 weeks</span></li>
+          </ul>
+        </div>
+
+        <!-- Premium -->
+        <div class="wave-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-2xl font-bold mb-1" data-en="Premium" data-es="Premium">Premium</h3>
+          <p class="text-slate-300 mb-4" data-en="Bespoke design, extra pages, and advanced animations." data-es="Diseño a medida, más páginas y animaciones avanzadas.">
+            Bespoke design, extra pages, and advanced animations.
+          </p>
+          <div class="text-4xl font-extrabold mb-4">$1,499</div>
+          <ul class="space-y-2 text-slate-200">
+            <li>• <span data-en="Up to 10 pages/sections" data-es="Hasta 10 páginas/secciones">Up to 10 pages/sections</span></li>
+            <li>• <span data-en="Advanced motion & parallax" data-es="Motion avanzado y parallax">Advanced motion & parallax</span></li>
+            <li>• <span data-en="Performance pass (Core Web Vitals)" data-es="Optimización de rendimiento (Core Web Vitals)">Performance pass (Core Web Vitals)</span></li>
+            <li>• <span data-en="SEO checklist and sitemap" data-es="Checklist SEO y sitemap">SEO checklist and sitemap</span></li>
+            <li>• <span data-en="Delivery in ~3 weeks" data-es="Entrega en ~3 semanas">Delivery in ~3 weeks</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="text-sm text-slate-400 mt-6" data-en="*Prices in USD. Custom work, CMS, integrations, or e-commerce quoted separately." data-es="*Precios en USD. Trabajo a medida, CMS, integraciones o e-commerce se cotizan por separado.">
+        *Prices in USD. Custom work, CMS, integrations, or e-commerce quoted separately.
+      </p>
+    </div>
+  </section>
+
+  <!-- Maintenance -->
+  <section id="maintenance" class="py-16 bg-[#0B1220]">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-extrabold mb-10 text-[#38BDF8]" data-en="Maintenance Plans" data-es="Planes de Mantenimiento">Maintenance Plans</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Basic -->
+        <div class="wave-card p-6 rounded-2xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-bold mb-1" data-en="Basic Care" data-es="Cuidado Básico">Basic Care</h3>
+          <p class="text-slate-300 mb-4" data-en="Keep your site fresh and secure." data-es="Mantén tu sitio fresco y seguro.">Keep your site fresh and secure.</p>
+          <div class="text-4xl font-extrabold mb-4">$49<span class="text-xl font-semibold">/mo</span></div>
+          <ul class="space-y-2 text-slate-200">
+            <li>• <span data-en="Uptime checks & minor fixes" data-es="Monitoreo y correcciones menores">Uptime checks & minor fixes</span></li>
+            <li>• <span data-en="1 small content update / mo" data-es="1 actualización pequeña / mes">1 small content update / mo</span></li>
+            <li>• <span data-en="Monthly backup (static sites)" data-es="Backup mensual (sitios estáticos)">Monthly backup (static sites)</span></li>
+            <li>• <span data-en="Email support (48h SLA)" data-es="Soporte por email (SLA 48h)">Email support (48h SLA)</span></li>
+          </ul>
+        </div>
+
+        <!-- Plus -->
+        <div class="wave-card p-6 rounded-2xl" data-aos="zoom-in" data-aos-delay="100">
+          <h3 class="text-2xl font-bold mb-1" data-en="Plus Care" data-es="Cuidado Plus">Plus Care</h3>
+          <p class="text-slate-300 mb-4" data-en="For active sites that evolve monthly." data-es="Para sitios activos que evolucionan cada mes.">For active sites that evolve monthly.</p>
+          <div class="text-4xl font-extrabold mb-4">$99<span class="text-xl font-semibold">/mo</span></div>
+          <ul class="space-y-2 text-slate-200">
+            <li>• <span data-en="Priority support (24h SLA)" data-es="Soporte prioritario (SLA 24h)">Priority support (24h SLA)</span></li>
+            <li>• <span data-en="Up to 3 content updates / mo" data-es="Hasta 3 actualizaciones / mes">Up to 3 content updates / mo</span></li>
+            <li>• <span data-en="Performance & SEO touch-ups" data-es="Ajustes de rendimiento y SEO">Performance & SEO touch-ups</span></li>
+            <li>• <span data-en="Quarterly review call" data-es="Llamada de revisión trimestral">Quarterly review call</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="text-sm text-slate-400 mt-6" data-en="*Content updates are text/image changes, not new features. Larger tasks quoted separately." data-es="*Las actualizaciones de contenido son cambios de texto/imagen, no nuevas funciones. Tareas mayores se cotizan aparte.">
+        *Content updates are text/image changes, not new features. Larger tasks quoted separately.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-extrabold mb-10 text-[#38BDF8]">FAQ</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div class="wave-card p-6 rounded-2xl" data-aos="fade-up">
+          <h3 class="text-xl font-bold mb-2" data-en="What do you need to start?" data-es="¿Qué necesitas para empezar?">What do you need to start?</h3>
+          <p class="text-slate-200" data-en="Brand name, logo (if any), copy, images/videos (or I source royalty-free), and any sites you like for inspiration." data-es="Nombre de marca, logo (si hay), textos, imágenes/videos (o yo consigo libres de derechos) y sitios de referencia que te inspiren.">
+            Brand name, logo (if any), copy, images/videos (or I source royalty-free), and any sites you like for inspiration.
+          </p>
+        </div>
+
+        <div class="wave-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-bold mb-2" data-en="Can you host or buy the domain?" data-es="¿Puedes hospedar o comprar el dominio?">Can you host or buy the domain?</h3>
+          <p class="text-slate-200" data-en="I’ll guide you through domain + hosting (or set up GitHub Pages/Netlify for static sites). Costs billed to you directly." data-es="Te guío con dominio + hosting (o configuro GitHub Pages/Netlify para sitios estáticos). Los costos se facturan directamente a ti.">
+            I’ll guide you through domain + hosting (or set up GitHub Pages/Netlify for static sites). Costs billed to you directly.
+          </p>
+        </div>
+
+        <div class="wave-card p-6 rounded-2xl" data-aos="fade-up">
+          <h3 class="text-xl font-bold mb-2" data-en="Do you do e-commerce?" data-es="¿Haces e-commerce?">Do you do e-commerce?</h3>
+          <p class="text-slate-200" data-en="Yes—quoted separately depending on catalog size, checkout, and integrations." data-es="Sí—se cotiza aparte según tamaño de catálogo, checkout e integraciones.">
+            Yes—quoted separately depending on catalog size, checkout, and integrations.
+          </p>
+        </div>
+
+        <div class="wave-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-bold mb-2" data-en="Payment terms?" data-es="¿Términos de pago?">Payment terms?</h3>
+          <p class="text-slate-200" data-en="50% to start, 50% on delivery. Maintenance is monthly, cancel anytime." data-es="50% al iniciar, 50% al entregar. Mantenimiento mensual, cancela cuando quieras.">
+            50% to start, 50% on delivery. Maintenance is monthly, cancel anytime.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="mailto:abrahandejesusaparicio@gmail.com" class="px-6 py-3 rounded-lg btn-primary font-semibold" data-en="Ask a question" data-es="Hacer una pregunta">Ask a question</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-[#94A3B8] text-sm bg-[#0F172A] border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6">
+      <p>© 2025 Abrahan De Jesús Aparicio Herrera. All Rights Reserved.</p>
+      <div class="mt-2">
+        <a href="index.html" class="text-[#38BDF8] hover:underline" data-en="Back to Portfolio" data-es="Volver al Portafolio">Back to Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    AOS.init({ duration: 900, once: false, mirror: true });
+
+    function applyLanguage(lang) {
+      document.querySelectorAll("[data-en]").forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+      const flagEl = document.getElementById("flag");
+      const langTextEl = document.getElementById("langText");
+      if (flagEl) {
+        flagEl.src = (lang === "en")
+          ? "https://flagcdn.com/gb.svg"
+          : "https://flagcdn.com/es.svg";
+        flagEl.alt = (lang === "en") ? "English Flag" : "Spanish Flag";
+      }
+      if (langTextEl) langTextEl.textContent = (lang === "en") ? "ES" : "EN";
+    }
+
+    let currentLang = "en";
+    const switchBtn = document.getElementById("langSwitch");
+    switchBtn.addEventListener("click", () => {
+      currentLang = (currentLang === "en") ? "es" : "en";
+      applyLanguage(currentLang);
+    });
+    document.addEventListener("DOMContentLoaded", () => applyLanguage("en"));
+  </script>
+</body>
+</html>
