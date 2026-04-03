@@ -3,308 +3,612 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-en="Abrahan Aparicio — Portfolio" data-es="Abrahan Aparicio — Portafolio">Abrahan Aparicio — Portfolio</title>
+  <title>Abrahan Aparicio — Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Typed.js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Mobile menu smooth animation */
-#mobileMenu {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: scale(0.95);
-  opacity: 0;
-}
+    :root {
+      --sky: #38BDF8;
+      --blue: #2563EB;
+      --navy: #0F172A;
+      --slate: #1E293B;
+    }
 
-#mobileMenu.flex {
-  transform: scale(1);
-  opacity: 1;
-}
-    body { font-family: 'Inter', sans-serif; }
+    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    .nav-link { position: relative; transition: color 0.3s; }
-    .nav-link::after {
-      content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px;
-      background: #38BDF8; transition: width 0.3s ease;
+    body { font-family: 'Inter', sans-serif; background: var(--navy); color: #F8FAFC; }
+
+    /* ── NAV ── */
+    header { position: fixed; width: 100%; top: 0; z-index: 50; background: rgba(15,23,42,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    nav { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
+    .logo { font-size: 18px; font-weight: 800; color: var(--sky); letter-spacing: -0.5px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; color: #94A3B8; text-decoration: none; position: relative; transition: color 0.2s; }
+    .nav-links a::after { content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--sky); transition:width 0.3s; }
+    .nav-links a:hover { color: var(--sky); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-badge { font-size: 11px; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.35); color: #4ADE80; padding: 4px 12px; border-radius: 20px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .nav-dot { width: 6px; height: 6px; background: #22C55E; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    #menuBtn { display: none; background: none; border: none; color: var(--sky); font-size: 24px; cursor: pointer; }
+    #mobileMenu { display: none; flex-direction: column; gap: 0; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); }
+    #mobileMenu.open { display: flex; }
+    #mobileMenu a { padding: 14px 20px; font-size: 14px; color: #94A3B8; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    #mobileMenu a:hover { color: var(--sky); background: rgba(56,189,248,0.05); }
+
+    /* ── HERO ── */
+    #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px 24px 60px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a 0%, #0d1f3c 50%, #0f172a 100%); }
+    .hero-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 65%); pointer-events: none; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .hero-available { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.25); color: #4ADE80; font-size: 12px; font-weight: 600; padding: 6px 16px; border-radius: 20px; margin-bottom: 24px; }
+    #hero h1 { font-size: clamp(36px, 7vw, 72px); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 8px; }
+    #hero h1 span { color: var(--sky); }
+    .hero-typed { font-size: clamp(15px, 2.5vw, 20px); color: #64748B; margin-bottom: 32px; min-height: 32px; }
+    .hero-typed em { color: var(--sky); font-style: normal; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; }
+    .btn-primary { background: var(--blue); color: white; padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #1E40AF; transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: #F8FAFC; padding: 12px 24px; border-radius: 10px; font-size: 14px; text-decoration: none; border: 1px solid rgba(255,255,255,0.18); transition: background 0.2s; }
+    .btn-outline:hover { background: rgba(255,255,255,0.06); }
+    .btn-sky { background: transparent; color: var(--sky); padding: 12px 24px; border-radius: 10px; font-size: 14px; text-decoration: none; border: 1px solid var(--sky); transition: background 0.2s; }
+    .btn-sky:hover { background: rgba(56,189,248,0.08); }
+    .hero-stats { display: flex; gap: 40px; justify-content: center; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .stat-num { font-size: 28px; font-weight: 800; color: var(--sky); display: block; }
+    .stat-label { font-size: 11px; color: #475569; margin-top: 2px; display: block; }
+    .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .particle { position: absolute; width: 3px; height: 3px; background: var(--sky); border-radius: 50%; opacity: 0; animation: floatUp 12s infinite linear; }
+    @keyframes floatUp { 0%{transform:translateY(100vh);opacity:0} 10%{opacity:0.6} 90%{opacity:0.3} 100%{transform:translateY(-10vh);opacity:0} }
+
+    /* ── SECTION SHARED ── */
+    .section { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+    .sec-head { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+    .sec-head h2 { font-size: 22px; font-weight: 800; color: var(--sky); white-space: nowrap; }
+    .sec-line { flex: 1; height: 1px; background: rgba(56,189,248,0.15); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--slate); }
+    .about-inner { display: flex; gap: 32px; align-items: flex-start; }
+    .about-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--sky)); display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; color: white; flex-shrink: 0; border: 3px solid rgba(56,189,248,0.3); }
+    .about-text p { font-size: 15px; color: #CBD5E1; line-height: 1.8; margin-bottom: 16px; }
+    .about-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-size: 12px; background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.3); color: #93C5FD; padding: 5px 12px; border-radius: 20px; }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+    .skill-card { background: var(--slate); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 18px 20px; transition: border-color 0.25s, transform 0.25s; }
+    .skill-card:hover { border-color: rgba(56,189,248,0.35); transform: translateY(-3px); }
+    .skill-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .skill-left { display: flex; align-items: center; gap: 10px; }
+    .skill-icon { font-size: 20px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: rgba(37,99,235,0.1); border-radius: 8px; }
+    .skill-name { font-size: 14px; font-weight: 600; color: #E2E8F0; }
+    .skill-years { font-size: 12px; color: var(--sky); font-weight: 700; white-space: nowrap; }
+    .skill-bar-track { height: 5px; background: rgba(255,255,255,0.07); border-radius: 3px; overflow: hidden; }
+    .skill-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue), var(--sky)); transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+    .skill-note { font-size: 11px; color: #475569; margin-top: 6px; font-style: italic; }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--slate); }
+    .projects-note { font-size: 13px; color: #FACC15; text-align: center; margin-bottom: 32px; padding: 10px 16px; background: rgba(250,204,21,0.07); border: 1px solid rgba(250,204,21,0.2); border-radius: 10px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .proj-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; transition: transform 0.25s, border-color 0.25s; }
+    .proj-card:hover { transform: translateY(-5px); border-color: rgba(56,189,248,0.3); }
+    .proj-thumb { height: 90px; display: flex; align-items: center; justify-content: center; font-size: 36px; position: relative; }
+    .proj-thumb-label { position: absolute; bottom: 8px; right: 10px; font-size: 10px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 6px; }
+    .proj-body { padding: 16px; }
+    .proj-title { font-size: 15px; font-weight: 700; color: #F1F5F9; margin-bottom: 6px; }
+    .proj-desc { font-size: 13px; color: #64748B; line-height: 1.6; margin-bottom: 10px; }
+    .proj-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .tag { font-size: 10px; background: rgba(56,189,248,0.1); color: #7DD3FC; padding: 3px 8px; border-radius: 6px; }
+    .proj-link { font-size: 13px; color: var(--sky); font-weight: 600; text-decoration: none; transition: color 0.2s; }
+    .proj-link:hover { color: #BAE6FD; }
+    .proj-span { grid-column: span 2; }
+
+    /* ── WHY ── */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .why-card { background: var(--slate); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 20px; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.25s; }
+    .why-card:hover { border-color: rgba(56,189,248,0.3); }
+    .why-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .bg-blue  { background: rgba(37,99,235,0.15); }
+    .bg-sky   { background: rgba(56,189,248,0.12); }
+    .bg-green { background: rgba(34,197,94,0.12); }
+    .bg-amber { background: rgba(251,191,36,0.12); }
+    .bg-purple { background: rgba(139,92,246,0.12); }
+    .why-card h4 { font-size: 14px; font-weight: 700; color: #E2E8F0; margin-bottom: 4px; }
+    .why-card p  { font-size: 12px; color: #64748B; line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--slate); }
+    .contact-sub { text-align: center; font-size: 14px; color: #FACC15; margin-bottom: 32px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .contact-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 20px; display: flex; align-items: center; gap: 14px; text-decoration: none; transition: border-color 0.25s, transform 0.25s; }
+    .contact-card:hover { border-color: var(--sky); transform: translateY(-3px); }
+    .c-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(37,99,235,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .c-icon svg { width: 20px; height: 20px; }
+    .c-label { font-size: 11px; color: #475569; margin-bottom: 2px; }
+    .c-val { font-size: 13px; color: #E2E8F0; font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 24px; font-size: 12px; color: #334155; border-top: 1px solid rgba(255,255,255,0.05); background: var(--navy); }
+
+    /* ── BACK TO TOP ── */
+    #backToTop { position: fixed; bottom: 28px; right: 28px; background: var(--blue); color: white; width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer; font-size: 18px; display: none; z-index: 50; transition: transform 0.25s, background 0.25s; }
+    #backToTop:hover { transform: scale(1.15); background: #1E40AF; }
+
+    /* ── LANG ── */
+    #langSwitch { background: rgba(30,41,59,0.8); color: #F8FAFC; padding: 7px 14px; border-radius: 8px; font-size: 13px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 6px; transition: background 0.2s; }
+    #langSwitch:hover { background: var(--blue); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 767px) {
+      .nav-links { display: none; }
+      #menuBtn { display: block; }
+      .about-inner { flex-direction: column; }
+      .hero-stats { gap: 20px; }
+      .proj-span { grid-column: span 1; }
     }
-    .nav-link:hover::after { width: 100%; }
-    .wave-card { position: relative; overflow: hidden; backdrop-filter: blur(10px); background: rgba(30,41,59,0.7); border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-    .wave-card:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 8px 20px rgba(56,189,248,0.3); }
-    .wave-card::before {
-      content: ""; position: absolute; top: 100%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(56,189,248,0.25) 0%, transparent 70%);
-      transform: rotate(25deg); transition: top 0.6s ease; z-index: 0;
-    }
-    .wave-card:hover::before { top: -50%; }
-    .wave-card * { position: relative; z-index: 1; }
-    .hero-bg { background: linear-gradient(-45deg, #0f172a, #1e293b, #2563eb, #38bdf8); background-size: 400% 400%; animation: gradientMove 15s ease infinite; position: relative; overflow: hidden; }
-    @keyframes gradientMove { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
-    .particles { position: absolute; width: 100%; height: 100%; top:0; left:0; pointer-events:none; overflow:hidden; z-index:0; }
-    .particle { position: absolute; width:4px; height:4px; background:#38BDF8; border-radius:50%; opacity:0.7; animation: float 10s infinite linear; }
-    @keyframes float { from { transform: translateY(0); opacity:0.7; } to { transform: translateY(-100vh); opacity:0; } }
-    #backToTop { position:fixed; bottom:25px; right:25px; background:#2563EB; color:white; border-radius:50%; padding:14px; display:none; cursor:pointer; z-index:50; transition:transform 0.3s, background 0.3s; }
-    #backToTop:hover { transform:scale(1.25); background:#1E40AF; }
-    #about { transition: transform 0.4s, box-shadow 0.4s; }
-    #about:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0px 8px 20px rgba(56,189,248,0.2); }
-    #langSwitch { background:#1E293B; color:#F8FAFC; padding:6px 12px; border-radius:6px; font-size:0.9rem; cursor:pointer; transition:background 0.3s; display:flex; align-items:center; gap:6px; }
-    #langSwitch:hover { background:#2563EB; }
   </style>
 </head>
-<body class="bg-[#0F172A] text-[#F8FAFC]">
+<body>
 
-  <!-- Navbar -->
-  <header class="fixed w-full bg-[#0F172A] shadow z-50">
-    <nav class="max-w-6xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
-      <h1 class="font-bold text-lg sm:text-xl text-[#38BDF8]" data-en="Abrahan Aparicio" data-es="Abrahan Aparicio">Abrahan Aparicio</h1>
-      
-      <!-- Mobile Menu Button -->
-      <button id="menuBtn" class="md:hidden text-[#38BDF8] focus:outline-none text-2xl">☰</button>
-
-      <!-- Nav Links -->
-  <ul id="navLinks" class="hidden md:flex space-x-6 text-sm font-medium">
-        <li> <a href="#hero" class="nav-link hover:text-[#38BDF8]" aria-label="Home"></li>
-        <li><a href="#about" class="nav-link hover:text-[#38BDF8]" data-en="About" data-es="Sobre mí">About</a></li>
-        <li><a href="#skills" class="nav-link hover:text-[#38BDF8]" data-en="Skills" data-es="Habilidades">Skills</a></li>
-        <li><a href="#projects" class="nav-link hover:text-[#38BDF8]" data-en="Projects" data-es="Proyectos">Projects</a></li>
-        <li><a href="#contact" class="nav-link hover:text-[#38BDF8]" data-en="Contact" data-es="Contacto">Contact</a></li>
-        <li><a href="pricing.html" target="_blank" rel="noopener" class="nav-link hover:text-[#38BDF8]" data-en="Pricing" data-es="Precios">Pricing</a></li>
- </ul>
-
-      <button id="langSwitch" class="ml-4 hidden sm:flex">
-        <img id="flag" src="https://flagcdn.com/gb.svg" alt="English Flag" class="w-5 h-5">
-        <span id="langText">ES</span>
-      </button>
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="logo">AA</div>
+      <ul class="nav-links">
+        <li><a href="#about" data-en="About" data-es="Sobre mí">About</a></li>
+        <li><a href="#skills" data-en="Skills" data-es="Habilidades">Skills</a></li>
+        <li><a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
+        <li><a href="#why" data-en="Why Me" data-es="Por qué yo">Why Me</a></li>
+        <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+        <li><a href="pricing.html" target="_blank" rel="noopener" data-en="Pricing" data-es="Precios">Pricing</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="nav-badge"><div class="nav-dot"></div><span data-en="Available" data-es="Disponible">Available</span></div>
+        <button id="langSwitch">
+          <img id="flag" src="https://flagcdn.com/gb.svg" alt="EN" style="width:18px;height:auto;">
+          <span id="langText">ES</span>
+        </button>
+        <button id="menuBtn">☰</button>
+      </div>
     </nav>
-
-    <!-- Mobile Dropdown -->
-    <ul id="mobileMenu" class="hidden flex-col space-y-4 p-4 bg-[#0F172A] text-center md:hidden">
-      <li><a href="#about" class="block py-2 hover:text-[#38BDF8]">About</a></li>
-      <li><a href="#skills" class="block py-2 hover:text-[#38BDF8]">Skills</a></li>
-      <li><a href="#projects" class="block py-2 hover:text-[#38BDF8]">Projects</a></li>
-      <li><a href="pricing.html" target="_blank" rel="noopener"class="block py-2 hover:text-[#38BDF8]">Pricing</a></li>
-      <li><a href="#contact" class="block py-2 hover:text-[#38BDF8]">Contact</a></li>
-</ul>
+    <ul id="mobileMenu">
+      <li><a href="#about" data-en="About" data-es="Sobre mí">About</a></li>
+      <li><a href="#skills" data-en="Skills" data-es="Habilidades">Skills</a></li>
+      <li><a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
+      <li><a href="#why" data-en="Why Me" data-es="Por qué yo">Why Me</a></li>
+      <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+      <li><a href="pricing.html" target="_blank" rel="noopener" data-en="Pricing" data-es="Precios">Pricing</a></li>
+    </ul>
   </header>
 
-  <!-- Hero -->
-  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4 hero-bg relative" data-aos="zoom-in">
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
     <div class="particles">
-      <div class="particle" style="left:10%; animation-duration:12s;"></div>
-      <div class="particle" style="left:30%; animation-duration:15s;"></div>
-      <div class="particle" style="left:50%; animation-duration:10s;"></div>
-      <div class="particle" style="left:70%; animation-duration:18s;"></div>
-      <div class="particle" style="left:90%; animation-duration:20s;"></div>
+      <div class="particle" style="left:8%;animation-duration:14s;animation-delay:0s;"></div>
+      <div class="particle" style="left:22%;animation-duration:18s;animation-delay:2s;"></div>
+      <div class="particle" style="left:45%;animation-duration:11s;animation-delay:1s;"></div>
+      <div class="particle" style="left:65%;animation-duration:16s;animation-delay:3s;"></div>
+      <div class="particle" style="left:85%;animation-duration:20s;animation-delay:0.5s;"></div>
     </div>
-    <h2 class="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 relative z-10">Abrahan De Jesús Aparicio Herrera</h2>
-    <p class="text-base sm:text-lg md:text-xl text-[#94A3B8] mb-6 relative z-10"><span id="typed"></span></p>
-    <div class="flex flex-col sm:flex-row gap-4 relative z-10 w-full sm:w-auto px-4">
-      <a href="#projects" class="w-full sm:w-auto px-6 py-3 bg-[#2563EB] text-white rounded-lg hover:bg-[#1E40AF]" data-en="View My Work" data-es="Ver mis trabajos">View My Work</a>
-      <a id="cvButton" href="Files/CV_Abrahan_Aparicio..pdf" download class="w-full sm:w-auto px-6 py-3 border border-gray-400 text-[#F8FAFC] rounded-lg hover:bg-[#1E293B]" data-en="Download CV" data-es="Descargar CV">Download CV</a>
-      <a href="pricing.html" target="_blank" rel="noopener"class="w-full sm:w-auto px-6 py-3 border border-[#38BDF8] text-[#F8FAFC] rounded-lg hover:bg-[#1E293B]"data-en="View Pricing" data-es="Ver Precios">View Pricing</a>
-
+    <div class="hero-available" data-aos="fade-down">
+      <div class="nav-dot"></div>
+      <span data-en="Open to freelance & agency work" data-es="Disponible para freelance y agencias">Open to freelance &amp; agency work</span>
+    </div>
+    <h1 data-aos="fade-up" data-aos-delay="100">Abrahan<br><span>Aparicio</span></h1>
+    <p class="hero-typed" data-aos="fade-up" data-aos-delay="200">
+      <span id="typed"></span>
+    </p>
+    <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
+      <a href="#projects" class="btn-primary" data-en="View My Work" data-es="Ver mis trabajos">View My Work</a>
+      <a href="Files/CV_Abrahan_Aparicio..pdf" download class="btn-outline" data-en="Download CV" data-es="Descargar CV">Download CV</a>
+      <a href="pricing.html" target="_blank" rel="noopener" class="btn-sky" data-en="View Pricing" data-es="Ver Precios">View Pricing</a>
+    </div>
+    <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+      <div><span class="stat-num">5+</span><span class="stat-label" data-en="Projects live" data-es="Proyectos en vivo">Projects live</span></div>
+      <div><span class="stat-num">7 yrs</span><span class="stat-label" data-en="JS experience" data-es="Experiencia JS">JS experience</span></div>
+      <div><span class="stat-num">EN/ES</span><span class="stat-label" data-en="Fully bilingual" data-es="Completamente bilingüe">Fully bilingual</span></div>
+      <div><span class="stat-num">90+</span><span class="stat-label" data-en="PageSpeed target" data-es="Meta PageSpeed">PageSpeed target</span></div>
     </div>
   </section>
 
-  <!-- About -->
- <section id="about" class="max-w-5xl mx-auto py-20 px-6" data-aos="up">
-<section id="about" class="max-w-5xl mx-auto py-20 px-6" data-aos="fade-up">
-    <h3 class="text-2xl font-bold mb-4 text-[#38BDF8]" data-en="About Me" data-es="Sobre mí">About Me</h3>
-    <p class="text-[#E2E8F0] leading-relaxed" 
-   data-en="I’m passionate about crafting clean, modern, and responsive websites while also bridging cultures through bilingual communication. My goal is to deliver digital experiences that are both visually engaging and user-friendly." 
-   data-es="Me apasiona crear sitios web limpios, modernos y responsivos, al mismo tiempo que conecto culturas mediante la comunicación bilingüe. Mi objetivo es ofrecer experiencias digitales que sean visualmente atractivas y fáciles de usar.">
-  I’m passionate about crafting clean, modern, and responsive websites while also bridging cultures through bilingual communication. My goal is to deliver digital experiences that are both visually engaging and user-friendly.
-</p>
-  </section>
-  <!-- Skills -->
-  <section id="skills" class="bg-[#1E293B] py-16 px-4 sm:px-6" data-aos="fade-up">
-    <div class="max-w-5xl mx-auto">
-      <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]" data-en="Skills" data-es="Habilidades">Skills</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-center">
-        <div class="p-6 rounded-xl shadow wave-card" data-en="Translation (EN ↔ ES)" data-es="Traducción (EN ↔ ES)">Translation (EN ↔ ES)</div>
-        <div class="p-6 rounded-xl shadow wave-card" data-en="Proofreading & Editing" data-es="Corrección y Edición">Proofreading & Editing</div>
-        <div class="p-6 rounded-xl shadow wave-card" data-en="HTML, CSS, JavaScript" data-es="HTML, CSS, JavaScript">HTML, CSS, JavaScript</div>
-        <div class="p-6 rounded-xl shadow wave-card" data-en="C++ Programming" data-es="Programación en C++">C++ Programming</div>
-        <div class="p-6 rounded-xl shadow wave-card" data-en="Responsive Web Design" data-es="Diseño Web Responsivo">Responsive Web Design</div>
-        <div class="p-6 rounded-xl shadow wave-card" data-en="Customer Service & Teamwork" data-es="Atención al Cliente y Trabajo en Equipo">Customer Service & Teamwork</div>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section">
+      <div class="sec-head" data-aos="fade-right">
+        <h2 data-en="About Me" data-es="Sobre mí">About Me</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="about-inner" data-aos="fade-up">
+        <div class="about-avatar">AA</div>
+        <div class="about-text">
+          <p data-en="I'm passionate about crafting fast, clean, and responsive websites for agencies and businesses — without the bloat of WordPress. Every site I build is hand-coded for performance, scoring 90+ on PageSpeed out of the box." data-es="Me apasiona crear sitios web rápidos, limpios y responsivos para agencias y negocios — sin la carga de WordPress. Cada sitio que construyo está codificado a mano para un rendimiento óptimo, alcanzando 90+ en PageSpeed de inicio.">
+            I'm passionate about crafting fast, clean, and responsive websites for agencies and businesses — without the bloat of WordPress. Every site I build is hand-coded for performance, scoring 90+ on PageSpeed out of the box.
+          </p>
+          <p data-en="Being fully bilingual in English and Spanish, I bridge the communication gap for agencies working across Latin America and international markets." data-es="Al ser completamente bilingüe en inglés y español, facilito la comunicación para agencias que trabajan en Latinoamérica y mercados internacionales.">
+            Being fully bilingual in English and Spanish, I bridge the communication gap for agencies working across Latin America and international markets.
+          </p>
+          <div class="about-chips">
+            <span class="chip">HTML / CSS</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Python</span>
+            <span class="chip">Tailwind CSS</span>
+            <span class="chip">C++</span>
+            <span class="chip" data-en="EN ↔ ES Translation" data-es="Traducción EN ↔ ES">EN ↔ ES Translation</span>
+            <span class="chip">Chame, Panamá 🇵🇦</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
- <section id="projects" class="max-w-5xl mx-auto py-20 px-6" data-aos="fade-left">
-    <h3 class="text-2xl font-bold mb-8 text-[#38BDF8]" data-en="Projects" data-es="Proyectos">Projects</h3>
-     <p class="mb-10 text-[#FACC15] text-center text-lg" 
-     data-en="💡 These are design showcases, not full apps." 
-     data-es="💡 Estos son diseños de muestra, no aplicaciones completas.">
-    💡 These are design showcases, not full apps.
-  </p>   
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="p-6 rounded-xl shadow wave-card" data-aos="flip-left">
-        <h4 class="font-semibold text-lg" data-en="Portfolio Website" data-es="Sitio Web de Portafolio">Portfolio Website</h4>
-        <p class="text-sm text-[#94A3B8] mb-2" data-en="Personal Project" data-es="Proyecto Personal">Personal Project</p>
-        <p class="text-[#E2E8F0]" data-en="A clean and minimalistic portfolio website built with HTML, TailwindCSS, and JavaScript." data-es="Un sitio web de portafolio limpio y minimalista creado con HTML, TailwindCSS y JavaScript.">A clean portfolio website...</p>
-        <a href="#" class="inline-block mt-3 text-[#38BDF8] hover:underline" data-en="View Project →" data-es="Ver Proyecto →">View Project →</a>
+  <!-- SKILLS -->
+  <section id="skills" style="background: var(--navy);">
+    <div class="section">
+      <div class="sec-head" data-aos="fade-right">
+        <h2 data-en="Skills" data-es="Habilidades">Skills</h2>
+        <div class="sec-line"></div>
       </div>
-      <div class="p-6 rounded-xl shadow wave-card md:col-span-2" data-aos="flip-up">
-        <h4 class="font-semibold text-lg" data-en="E-Shop for Gaming Industry" data-es="Tienda Virtual para la Industria Gamer">E-Shop for Gaming Industry</h4>
-        <p class="text-sm text-[#94A3B8] mb-2" data-en="Design Showcase" data-es="Muestra de Diseño">Design Showcase</p>
-        <img src="Pictures/Gaming_website_pic..jpg" alt="Gaming Website" class="rounded-lg mb-4">
-        <p class="text-[#E2E8F0]" data-en="An online gaming shop concept showcasing sleek UI and responsive design for the gaming industry." data-es="Un concepto de tienda virtual gamer que muestra una interfaz moderna y diseño responsivo.">An online gaming shop concept...</p>
-        <a href="https://abrahandejesusaparicio-code.github.io/sentinel-gaming" target="_blank" class="inline-block mt-3 text-[#38BDF8] font-semibold hover:underline" data-en="🔗 Click here to see" data-es="🔗 Haz clic aquí para ver">🔗 Click here to see</a>
-        <p class="mt-2 text-sm text-[#FACC15]" data-en="⚠️ Note: This is a design showcase only, not a functional e-commerce site." data-es="⚠️ Nota: Esto es solo una muestra de diseño, no una tienda funcional.">⚠️ Note: This is a design showcase...</p>
+      <div class="skills-grid">
+
+        <!-- HTML & CSS — 4 years / max 7 → 57% -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="skill-top">
+            <div class="skill-left">
+              <div class="skill-icon">🌐</div>
+              <div class="skill-name">HTML &amp; CSS</div>
+            </div>
+            <div class="skill-years" data-en="4 yrs" data-es="4 años">4 yrs</div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width:0%" data-width="57%"></div>
+          </div>
+          <div class="skill-note" data-en="Since 2022 · Tailwind, Flexbox, Grid" data-es="Desde 2022 · Tailwind, Flexbox, Grid">Since 2022 · Tailwind, Flexbox, Grid</div>
+        </div>
+
+        <!-- JavaScript — 7 years / max 7 → 100% -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="60">
+          <div class="skill-top">
+            <div class="skill-left">
+              <div class="skill-icon">⚡</div>
+              <div class="skill-name">JavaScript</div>
+            </div>
+            <div class="skill-years" data-en="7 yrs" data-es="7 años">7 yrs</div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width:0%" data-width="100%"></div>
+          </div>
+          <div class="skill-note" data-en="Since 2019 · DOM, APIs, Animations" data-es="Desde 2019 · DOM, APIs, Animaciones">Since 2019 · DOM, APIs, Animations</div>
+        </div>
+
+        <!-- Responsive Design — 3 years / max 7 → 43% -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="120">
+          <div class="skill-top">
+            <div class="skill-left">
+              <div class="skill-icon">📱</div>
+              <div class="skill-name" data-en="Responsive Design" data-es="Diseño Responsivo">Responsive Design</div>
+            </div>
+            <div class="skill-years" data-en="3 yrs" data-es="3 años">3 yrs</div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width:0%" data-width="43%"></div>
+          </div>
+          <div class="skill-note" data-en="Since 2023 · Mobile-first, all screen sizes" data-es="Desde 2023 · Mobile-first, todos los tamaños">Since 2023 · Mobile-first, all screen sizes</div>
+        </div>
+
+        <!-- Translation — 7 years / max 7 → 100% -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="180">
+          <div class="skill-top">
+            <div class="skill-left">
+              <div class="skill-icon">🔤</div>
+              <div class="skill-name" data-en="EN ↔ ES Translation" data-es="Traducción EN ↔ ES">EN ↔ ES Translation</div>
+            </div>
+            <div class="skill-years" data-en="7 yrs" data-es="7 años">7 yrs</div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width:0%" data-width="100%"></div>
+          </div>
+          <div class="skill-note" data-en="Since 2019 · Proofreading &amp; Editing" data-es="Desde 2019 · Corrección y Edición">Since 2019 · Proofreading &amp; Editing</div>
+        </div>
+
+        <!-- Tailwind CSS — 4 years / max 7 → 57% -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="skill-top">
+            <div class="skill-left">
+              <div class="skill-icon">🎨</div>
+              <div class="skill-name">Tailwind CSS</div>
+            </div>
+            <div class="skill-years" data-en="4 yrs" data-es="4 años">4 yrs</div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width:0%" data-width="57%"></div>
+          </div>
+          <div class="skill-note" data-en="Since 2022 · Utility-first, rapid UI" data-es="Desde 2022 · Utility-first, UI rápida">Since 2022 · Utility-first, rapid UI</div>
+        </div>
+
+        <!-- C++ — 6 years / max 7 → 86% -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-top">
+            <div class="skill-left">
+              <div class="skill-icon">⚙️</div>
+              <div class="skill-name">C++</div>
+            </div>
+            <div class="skill-years" data-en="6 yrs" data-es="6 años">6 yrs</div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width:0%" data-width="86%"></div>
+          </div>
+          <div class="skill-note" data-en="Since 2020 · Logic, OOP, Algorithms" data-es="Desde 2020 · Lógica, POO, Algoritmos">Since 2020 · Logic, OOP, Algorithms</div>
+        </div>
+
+        <!-- Python — 2 years / max 7 → 29% -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="360">
+          <div class="skill-top">
+            <div class="skill-left">
+              <div class="skill-icon">🐍</div>
+              <div class="skill-name">Python</div>
+            </div>
+            <div class="skill-years" data-en="2 yrs" data-es="2 años">2 yrs</div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width:0%" data-width="29%"></div>
+          </div>
+          <div class="skill-note" data-en="Since 2024 · Scripting, Automation" data-es="Desde 2024 · Scripts, Automatización">Since 2024 · Scripting, Automation</div>
+        </div>
+
+        <!-- Customer Service — 1 year / max 7 → 14% -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="420">
+          <div class="skill-top">
+            <div class="skill-left">
+              <div class="skill-icon">🤝</div>
+              <div class="skill-name" data-en="Customer Service" data-es="Atención al Cliente">Customer Service</div>
+            </div>
+            <div class="skill-years" data-en="1 yr · Training" data-es="1 año · En formación">1 yr · Training</div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width:0%" data-width="14%"></div>
+          </div>
+          <div class="skill-note" data-en="Since 2025 · Communication &amp; Teamwork" data-es="Desde 2025 · Comunicación y Trabajo en Equipo">Since 2025 · Communication &amp; Teamwork</div>
+        </div>
+
       </div>
-          <!-- NEW BARBERSHOP PROJECT -->
-    <div class="p-6 rounded-xl shadow wave-card md:col-span-2" data-aos="flip-up">
-      <h4 class="font-semibold text-lg" data-en="Barbershop Showcase Website" data-es="Sitio Web de Barbería">Barbershop Showcase Website</h4>
-      <p class="text-sm text-[#94A3B8] mb-2" data-en="Design Showcase" data-es="Muestra de Diseño">Design Showcase</p>
-      <img src="Pictures/Hero_picture_barber.jpg" alt="Barbershop Website" class="rounded-lg mb-4">
-      <p class="text-[#E2E8F0]" data-en="A stylish barbershop website concept with modern UI, clean layout, and responsive design." data-es="Un concepto de sitio web de barbería con diseño moderno, interfaz limpia y diseño responsivo.">A stylish barbershop website...</p>
-      <a href="https://abrahandejesusaparicio-code.github.io/Barbershop-Showcase./" target="_blank" class="inline-block mt-3 text-[#38BDF8] font-semibold hover:underline" data-en="🔗 Click here to see" data-es="🔗 Haz clic aquí para ver">🔗 Click here to see</a>
-      <p class="mt-2 text-sm text-[#FACC15]" data-en="⚠️ Note: This is a design showcase only, not a functional e-commerce site." data-es="⚠️ Nota: Esto es solo una muestra de diseño, no una tienda funcional.">⚠️ Note: This is a design showcase...</p>
-    </div>
-<!-- NEW REAL ESTATE PROJECT -->
-<div class="p-6 rounded-xl shadow wave-card md:col-span-2" data-aos="flip-up">
-  <h4 class="font-semibold text-lg" 
-      data-en="Real Estate Showcase Website" 
-      data-es="Sitio Web de Bienes Raíces">
-    Real Estate Showcase Website
-  </h4>
-  <p class="text-sm text-[#94A3B8] mb-2" 
-     data-en="Design Showcase" 
-     data-es="Muestra de Diseño">
-    Design Showcase
-  </p>
-
-  <!-- Thumbnail (no folder, root file) -->
-  <img src="real_state_pic.jpg" 
-       alt="Real Estate Website" 
-       class="rounded-lg mb-4">
-
-  <!-- Description -->
-  <p class="text-[#E2E8F0]"
-     data-en="A modern real estate website with a video hero, featured properties, animations, and a clean, responsive layout."
-     data-es="Un sitio moderno de bienes raíces con video en el héroe, propiedades destacadas, animaciones y un diseño limpio y responsivo.">
-    A modern real estate website with a video hero, featured properties, animations, and a clean, responsive layout.
-  </p>
-
-  <!-- Live Link -->
-  <a href="https://abrahandejesusaparicio-code.github.io/Real-state-model/" 
-     target="_blank" 
-     class="inline-block mt-3 text-[#38BDF8] font-semibold hover:underline"
-     data-en="🔗 Click here to see"
-     data-es="🔗 Haz clic aquí para ver">
-    🔗 Click here to see
-  </a>
-
-  <!-- Note -->
-  <p class="mt-2 text-sm text-[#FACC15]"
-     data-en="⚠️ Note: This is a design showcase only, not a full application."
-     data-es="⚠️ Nota: Esto es solo una muestra de diseño, no una aplicación completa.">
-    ⚠️ Note: This is a design showcase only, not a full application.
-  </p>
-</div>
-
     </div>
   </section>
 
-    <!-- Contact -->
-  <section id="contact" class="bg-[#2563EB] text-white py-20 px-6" data-aos="fade-up">
-    <div class="max-w-5xl mx-auto text-center">
-      <h3 class="text-2xl font-bold mb-8" data-en="Get in Touch" data-es="Contáctame">Get in Touch</h3>
-      <p class="mb-10 text-lg text-yellow-300" data-en="Click any card below to reach me directly!" data-es="¡Haz clic en cualquier tarjeta para contactarme directamente!">
-        Click any card below to reach me directly!
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section">
+      <div class="sec-head" data-aos="fade-right">
+        <h2 data-en="Projects" data-es="Proyectos">Projects</h2>
+        <div class="sec-line"></div>
+      </div>
+      <p class="projects-note" data-en="💡 These are design showcases, not full applications." data-es="💡 Estos son diseños de muestra, no aplicaciones completas.">
+        💡 These are design showcases, not full applications.
       </p>
-      <div class="grid md:grid-cols-2 gap-6">
-        <a href="mailto:abrahandejesusaparicio@gmail.com" class="p-8 rounded-xl wave-card flex items-center justify-center space-x-3 hover:bg-[#1E40AF]" data-aos="zoom-in">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          <span class="text-xl">abrahandejesusaparicio@gmail.com</span>
+      <div class="projects-grid">
+
+        <div class="proj-card" data-aos="fade-up">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#1a0533,#7c3aed);">
+            🎮 <span class="proj-thumb-label">Live ↗</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title" data-en="Gaming E-Shop" data-es="Tienda Gamer">Gaming E-Shop</div>
+            <div class="proj-desc" data-en="Sleek UI concept for the gaming industry with modern dark aesthetics." data-es="Concepto de UI elegante para la industria gamer con estética oscura moderna.">Sleek UI concept for the gaming industry with modern dark aesthetics.</div>
+            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+            <a href="https://abrahandejesusaparicio-code.github.io/sentinel-gaming" target="_blank" class="proj-link" data-en="🔗 View project" data-es="🔗 Ver proyecto">🔗 View project</a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#1a0a00,#92400e);">
+            ✂️ <span class="proj-thumb-label">Live ↗</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title" data-en="Barbershop Website" data-es="Sitio de Barbería">Barbershop Website</div>
+            <div class="proj-desc" data-en="Stylish barbershop site with modern UI and clean responsive layout." data-es="Sitio de barbería elegante con UI moderna y diseño responsivo limpio.">Stylish barbershop site with modern UI and clean responsive layout.</div>
+            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+            <a href="https://abrahandejesusaparicio-code.github.io/Barbershop-Showcase./" target="_blank" class="proj-link" data-en="🔗 View project" data-es="🔗 Ver proyecto">🔗 View project</a>
+          </div>
+        </div>
+
+        <div class="proj-card proj-span" data-aos="fade-up" data-aos-delay="160">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#052010,#15803d);height:110px;">
+            🏠 <span class="proj-thumb-label">Live ↗</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title" data-en="Real Estate Showcase" data-es="Sitio de Bienes Raíces">Real Estate Showcase</div>
+            <div class="proj-desc" data-en="Modern real estate site with a video hero, featured property listings, scroll animations, and fully responsive layout — exactly what agencies in Panama need." data-es="Sitio moderno de bienes raíces con video en hero, propiedades destacadas, animaciones al scroll y diseño completamente responsivo — exactamente lo que las agencias en Panamá necesitan.">Modern real estate site with a video hero, featured property listings, scroll animations, and fully responsive layout — exactly what agencies in Panama need.</div>
+            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">AOS</span><span class="tag">Responsive</span></div>
+            <a href="https://abrahandejesusaparicio-code.github.io/Real-state-model/" target="_blank" class="proj-link" data-en="🔗 View project" data-es="🔗 Ver proyecto">🔗 View project</a>
+          </div>
+        </div>
+
+        <div class="proj-card proj-span" data-aos="fade-up" data-aos-delay="200">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#0f172a,#1e40af);height:80px;">
+            💼 <span class="proj-thumb-label">This site</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title" data-en="Portfolio Website" data-es="Sitio de Portafolio">Portfolio Website</div>
+            <div class="proj-desc" data-en="This portfolio — bilingual, animated, fully responsive, built from scratch with HTML, Tailwind CSS, and JavaScript." data-es="Este portafolio — bilingüe, animado, completamente responsivo, construido desde cero con HTML, Tailwind CSS y JavaScript.">This portfolio — bilingual, animated, fully responsive, built from scratch with HTML, Tailwind CSS, and JavaScript.</div>
+            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">Tailwind</span><span class="tag">JS</span><span class="tag">AOS</span><span class="tag">Typed.js</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WORK WITH ME -->
+  <section id="why" style="background:var(--navy);">
+    <div class="section">
+      <div class="sec-head" data-aos="fade-right">
+        <h2 data-en="Why Work With Me" data-es="Por qué trabajar conmigo">Why Work With Me</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card" data-aos="fade-up">
+          <div class="why-icon bg-blue">⚡</div>
+          <div>
+            <h4 data-en="Fast delivery" data-es="Entrega rápida">Fast delivery</h4>
+            <p data-en="No CMS bloat — pure HTML/CSS ships in days, not weeks." data-es="Sin WordPress — HTML/CSS puro listo en días, no semanas.">No CMS bloat — pure HTML/CSS ships in days, not weeks.</p>
+          </div>
+        </div>
+        <div class="why-card" data-aos="fade-up" data-aos-delay="60">
+          <div class="why-icon bg-sky">📱</div>
+          <div>
+            <h4 data-en="Mobile-first" data-es="Mobile-first">Mobile-first</h4>
+            <p data-en="Every site works perfectly on any screen size, guaranteed." data-es="Cada sitio funciona perfectamente en cualquier tamaño de pantalla.">Every site works perfectly on any screen size, guaranteed.</p>
+          </div>
+        </div>
+        <div class="why-card" data-aos="fade-up" data-aos-delay="120">
+          <div class="why-icon bg-green">🌐</div>
+          <div>
+            <h4 data-en="Bilingual (EN/ES)" data-es="Bilingüe (EN/ES)">Bilingual (EN/ES)</h4>
+            <p data-en="No translation costs — I handle both languages natively." data-es="Sin costos de traducción — manejo ambos idiomas de forma nativa.">No translation costs — I handle both languages natively.</p>
+          </div>
+        </div>
+        <div class="why-card" data-aos="fade-up" data-aos-delay="180">
+          <div class="why-icon bg-amber">🧼</div>
+          <div>
+            <h4 data-en="Clean code" data-es="Código limpio">Clean code</h4>
+            <p data-en="Easy for agencies to hand off, extend, or maintain." data-es="Fácil de entregar, extender o mantener para las agencias.">Easy for agencies to hand off, extend, or maintain.</p>
+          </div>
+        </div>
+        <div class="why-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="why-icon bg-purple">🚀</div>
+          <div>
+            <h4 data-en="90+ PageSpeed" data-es="90+ PageSpeed">90+ PageSpeed</h4>
+            <p data-en="Lightweight sites that rank better and load faster for clients." data-es="Sitios ligeros que posicionan mejor y cargan más rápido para los clientes.">Lightweight sites that rank better and load faster for clients.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section">
+      <div class="sec-head" data-aos="fade-right">
+        <h2 data-en="Get in Touch" data-es="Contáctame">Get in Touch</h2>
+        <div class="sec-line"></div>
+      </div>
+      <p class="contact-sub" data-en="Click any card below to reach me directly!" data-es="¡Haz clic en cualquier tarjeta para contactarme directamente!">Click any card below to reach me directly!</p>
+      <div class="contact-grid">
+        <a href="mailto:abrahandejesusaparicio@gmail.com" class="contact-card" data-aos="zoom-in">
+          <div class="c-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="#38BDF8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="c-label" data-en="Email" data-es="Correo">Email</div>
+            <div class="c-val">abrahandejesusaparicio@gmail.com</div>
+          </div>
         </a>
-        <a href="tel:+50765830384" class="p-8 rounded-xl wave-card flex items-center justify-center space-x-3 hover:bg-[#1E40AF]" data-aos="zoom-in" data-aos-delay="100">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.586l2.414 2.414a1 1 0 010 1.414L9.414 9.414a16 16 0 006.172 6.172l2.293-2.293a1 1 0 011.414 0l2.414 2.414A1 1 0 0120 19h-1C10.373 21 3 13.627 3 5z"/>
-          </svg>
-          <span class="text-xl">+507 6583-0384</span>
+        <a href="tel:+50765830384" class="contact-card" data-aos="zoom-in" data-aos-delay="80">
+          <div class="c-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="#38BDF8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.586l2.414 2.414a1 1 0 010 1.414L9.414 9.414a16 16 0 006.172 6.172l2.293-2.293a1 1 0 011.414 0l2.414 2.414A1 1 0 0120 19h-1C10.373 21 3 13.627 3 5z"/></svg>
+          </div>
+          <div>
+            <div class="c-label" data-en="Phone / WhatsApp" data-es="Teléfono / WhatsApp">Phone / WhatsApp</div>
+            <div class="c-val">+507 6583-0384</div>
+          </div>
         </a>
-        <a href="https://www.linkedin.com/in/abrahan-aparicio-herrera" target="_blank" class="p-8 rounded-xl wave-card flex items-center justify-center space-x-3 hover:bg-[#1E40AF]" data-aos="zoom-in" data-aos-delay="200">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
-            <circle cx="4" cy="4" r="2"/>
-          </svg>
-          <span class="text-xl">LinkedIn Profile</span>
+        <a href="https://www.linkedin.com/in/abrahan-aparicio-herrera" target="_blank" class="contact-card" data-aos="zoom-in" data-aos-delay="160">
+          <div class="c-icon">
+            <svg fill="currentColor" viewBox="0 0 24 24" style="color:#38BDF8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="c-label">LinkedIn</div>
+            <div class="c-val">abrahan-aparicio-herrera</div>
+          </div>
         </a>
-        <a href="https://github.com/abrahandejesusaparicio-code" target="_blank" class="p-8 rounded-xl wave-card flex items-center justify-center space-x-3 hover:bg-[#1E40AF]" data-aos="zoom-in" data-aos-delay="300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.486 2 12.018c0 4.428 2.865 8.188 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.465-1.11-1.465-.907-.62.069-.608.069-.608 1.004.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.112-4.555-4.951 0-1.093.39-1.988 1.11-2.688-.111-.253-.481-1.272.105-2.65 0 0 .905-.29 2.963 1.085A10.26 10.26 0 0112 6.844c.916.004 1.84.124 2.704.365 2.057-1.375 2.96-1.085 2.96-1.085.588 1.378.218 2.397.107 2.65.693.7 1.108 1.595 1.108 2.688 0 3.847-2.337 4.695-4.563 4.944.36.31.681.92.681 1.855v2.751c0 .267.18.58.688.482A10.019 10.019 0 0022 12.018C22 6.486 17.523 2 12 2z" clip-rule="evenodd"/>
-          </svg>
-          <span class="text-xl">GitHub Profile</span>
+        <a href="https://github.com/abrahandejesusaparicio-code" target="_blank" class="contact-card" data-aos="zoom-in" data-aos-delay="240">
+          <div class="c-icon">
+            <svg fill="currentColor" viewBox="0 0 24 24" style="color:#38BDF8"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.486 2 12.018c0 4.428 2.865 8.188 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.465-1.11-1.465-.907-.62.069-.608.069-.608 1.004.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.112-4.555-4.951 0-1.093.39-1.988 1.11-2.688-.111-.253-.481-1.272.105-2.65 0 0 .905-.29 2.963 1.085A10.26 10.26 0 0112 6.844c.916.004 1.84.124 2.704.365 2.057-1.375 2.96-1.085 2.96-1.085.588 1.378.218 2.397.107 2.65.693.7 1.108 1.595 1.108 2.688 0 3.847-2.337 4.695-4.563 4.944.36.31.681.92.681 1.855v2.751c0 .267.18.58.688.482A10.019 10.019 0 0022 12.018C22 6.486 17.523 2 12 2z" clip-rule="evenodd"/></svg>
+          </div>
+          <div>
+            <div class="c-label">GitHub</div>
+            <div class="c-val">abrahandejesusaparicio-code</div>
+          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-6 text-center text-[#94A3B8] text-sm bg-[#0F172A]">
-    © 2025 Abrahan De Jesús Aparicio Herrera. All Rights Reserved.
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Abrahan De Jesús Aparicio Herrera. <span data-en="All Rights Reserved." data-es="Todos los derechos reservados.">All Rights Reserved.</span>
   </footer>
 
-  <!-- Back to Top -->
+  <!-- BACK TO TOP -->
   <button id="backToTop" aria-label="Back to Top">⬆</button>
 
-  <!-- Scripts -->
+  <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Init AOS
-    AOS.init({ duration: window.innerWidth < 768 ? 700 : 1000, once: false, mirror: true });
+    AOS.init({ duration: window.innerWidth < 768 ? 600 : 900, once: false, mirror: true });
 
     // Typed.js
     let typed = new Typed("#typed", {
-      strings: ["Bilingual Translator", "Front-End Developer", "Problem Solver"],
-      typeSpeed: 50, backSpeed: 25, loop: true
+      strings: ["Front-End Developer", "Bilingual Translator", "Clean Code Advocate", "Available for Freelance"],
+      typeSpeed: 50, backSpeed: 28, loop: true
     });
 
+    // Skill bar animation on scroll
+    const fills = document.querySelectorAll('.skill-bar-fill');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.style.width = el.dataset.width;
+        }
+      });
+    }, { threshold: 0.3 });
+    fills.forEach(f => observer.observe(f));
+
     // Language switcher
+    const translations = {
+      en: { typed: ["Front-End Developer","Bilingual Translator","Clean Code Advocate","Available for Freelance"] },
+      es: { typed: ["Desarrollador Front-End","Traductor Bilingüe","Código Limpio","Disponible para Freelance"] }
+    };
+    let currentLang = "en";
+
     function applyLanguage(lang) {
       document.querySelectorAll("[data-en]").forEach(el => {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
         el.textContent = el.getAttribute(`data-${lang}`);
       });
       const flagEl = document.getElementById("flag");
       const langTextEl = document.getElementById("langText");
       if (flagEl) {
-        flagEl.src = (lang === "en")
-          ? "https://flagcdn.com/gb.svg"
-          : "https://flagcdn.com/es.svg";
-        flagEl.alt = (lang === "en") ? "English Flag" : "Spanish Flag";
+        flagEl.src = lang === "en" ? "https://flagcdn.com/gb.svg" : "https://flagcdn.com/es.svg";
+        flagEl.alt = lang === "en" ? "EN" : "ES";
       }
-      if (langTextEl) langTextEl.textContent = (lang === "en") ? "ES" : "EN";
+      if (langTextEl) langTextEl.textContent = lang === "en" ? "ES" : "EN";
       if (typed && typeof typed.destroy === "function") typed.destroy();
-      const strings = (lang === "en")
-        ? ["Bilingual Translator", "Front-End Developer", "Problem Solver"]
-        : ["Traductor Bilingüe", "Desarrollador Front-End", "Resolutor de Problemas"];
-      typed = new Typed("#typed", { strings, typeSpeed: 50, backSpeed: 25, loop: true });
+      typed = new Typed("#typed", {
+        strings: translations[lang].typed,
+        typeSpeed: 50, backSpeed: 28, loop: true
+      });
     }
-    let currentLang = "en";
-    const switchBtn = document.getElementById("langSwitch");
-    switchBtn.addEventListener("click", () => {
-      currentLang = (currentLang === "en") ? "es" : "en";
+
+    document.getElementById("langSwitch").addEventListener("click", () => {
+      currentLang = currentLang === "en" ? "es" : "en";
       applyLanguage(currentLang);
     });
-    document.addEventListener("DOMContentLoaded", () => applyLanguage("en"));
 
-    // Mobile menu toggle
+    // Mobile menu
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-      mobileMenu.classList.toggle("flex");
-    });
+    menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+    mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileMenu.classList.remove("open")));
 
-    // Back to Top
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => backToTop.style.display = window.scrollY > 300 ? "block" : "none");
-    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    // Back to top
+    const btn = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => btn.style.display = window.scrollY > 400 ? "block" : "none");
+    btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   </script>
 </body>
 </html>
