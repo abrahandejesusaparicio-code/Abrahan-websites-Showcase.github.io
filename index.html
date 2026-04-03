@@ -20,7 +20,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--navy); color: #F8FAFC; }
 
-    /* ── NAV ── */
+    /* NAV */
     header { position: fixed; width: 100%; top: 0; z-index: 50; background: rgba(15,23,42,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
     nav { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
     .logo { font-size: 18px; font-weight: 800; color: var(--sky); letter-spacing: -0.5px; }
@@ -38,7 +38,7 @@
     #mobileMenu a { padding: 14px 20px; font-size: 14px; color: #94A3B8; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
     #mobileMenu a:hover { color: var(--sky); background: rgba(56,189,248,0.05); }
 
-    /* ── HERO ── */
+    /* HERO */
     #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px 24px 60px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a 0%, #0d1f3c 50%, #0f172a 100%); }
     .hero-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 65%); pointer-events: none; }
     .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
@@ -46,14 +46,11 @@
     #hero h1 { font-size: clamp(36px, 7vw, 72px); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 8px; }
     #hero h1 span { color: var(--sky); }
     .hero-typed { font-size: clamp(15px, 2.5vw, 20px); color: #64748B; margin-bottom: 32px; min-height: 32px; }
-    .hero-typed em { color: var(--sky); font-style: normal; }
     .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; }
     .btn-primary { background: var(--blue); color: white; padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; }
     .btn-primary:hover { background: #1E40AF; transform: translateY(-1px); }
     .btn-outline { background: transparent; color: #F8FAFC; padding: 12px 24px; border-radius: 10px; font-size: 14px; text-decoration: none; border: 1px solid rgba(255,255,255,0.18); transition: background 0.2s; }
     .btn-outline:hover { background: rgba(255,255,255,0.06); }
-    .btn-sky { background: transparent; color: var(--sky); padding: 12px 24px; border-radius: 10px; font-size: 14px; text-decoration: none; border: 1px solid var(--sky); transition: background 0.2s; }
-    .btn-sky:hover { background: rgba(56,189,248,0.08); }
     .hero-stats { display: flex; gap: 40px; justify-content: center; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
     .stat-num { font-size: 28px; font-weight: 800; color: var(--sky); display: block; }
     .stat-label { font-size: 11px; color: #475569; margin-top: 2px; display: block; }
@@ -61,13 +58,13 @@
     .particle { position: absolute; width: 3px; height: 3px; background: var(--sky); border-radius: 50%; opacity: 0; animation: floatUp 12s infinite linear; }
     @keyframes floatUp { 0%{transform:translateY(100vh);opacity:0} 10%{opacity:0.6} 90%{opacity:0.3} 100%{transform:translateY(-10vh);opacity:0} }
 
-    /* ── SECTION SHARED ── */
+    /* SECTION SHARED */
     .section { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
     .sec-head { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
     .sec-head h2 { font-size: 22px; font-weight: 800; color: var(--sky); white-space: nowrap; }
     .sec-line { flex: 1; height: 1px; background: rgba(56,189,248,0.15); }
 
-    /* ── ABOUT ── */
+    /* ABOUT */
     #about { background: var(--slate); }
     .about-inner { display: flex; gap: 32px; align-items: flex-start; }
     .about-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--sky)); display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; color: white; flex-shrink: 0; border: 3px solid rgba(56,189,248,0.3); }
@@ -75,7 +72,7 @@
     .about-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip { font-size: 12px; background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.3); color: #93C5FD; padding: 5px 12px; border-radius: 20px; }
 
-    /* ── SKILLS ── */
+    /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
     .skill-card { background: var(--slate); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 18px 20px; transition: border-color 0.25s, transform 0.25s; }
     .skill-card:hover { border-color: rgba(56,189,248,0.35); transform: translateY(-3px); }
@@ -88,65 +85,81 @@
     .skill-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue), var(--sky)); transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
     .skill-note { font-size: 11px; color: #475569; margin-top: 6px; font-style: italic; }
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     #projects { background: var(--slate); }
     .projects-note { font-size: 13px; color: #FACC15; text-align: center; margin-bottom: 32px; padding: 10px 16px; background: rgba(250,204,21,0.07); border: 1px solid rgba(250,204,21,0.2); border-radius: 10px; }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-    .proj-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; transition: transform 0.25s, border-color 0.25s; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .proj-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; transition: transform 0.25s, border-color 0.25s; display: flex; flex-direction: column; }
     .proj-card:hover { transform: translateY(-5px); border-color: rgba(56,189,248,0.3); }
-    .proj-thumb { height: 90px; display: flex; align-items: center; justify-content: center; font-size: 36px; position: relative; }
-    .proj-thumb-label { position: absolute; bottom: 8px; right: 10px; font-size: 10px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 6px; }
-    .proj-body { padding: 16px; }
-    .proj-title { font-size: 15px; font-weight: 700; color: #F1F5F9; margin-bottom: 6px; }
-    .proj-desc { font-size: 13px; color: #64748B; line-height: 1.6; margin-bottom: 10px; }
-    .proj-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .proj-thumb { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 52px; position: relative; }
+    .proj-thumb-label { position: absolute; bottom: 10px; right: 12px; font-size: 11px; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85); padding: 3px 10px; border-radius: 6px; font-weight: 600; }
+    .proj-thumb-type { position: absolute; top: 10px; left: 12px; font-size: 10px; background: rgba(37,99,235,0.55); color: #BAE6FD; padding: 3px 10px; border-radius: 6px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+    .proj-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .proj-title { font-size: 16px; font-weight: 700; color: #F1F5F9; margin-bottom: 8px; }
+    .proj-desc { font-size: 13px; color: #64748B; line-height: 1.7; margin-bottom: 14px; flex: 1; }
+    .proj-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
     .tag { font-size: 10px; background: rgba(56,189,248,0.1); color: #7DD3FC; padding: 3px 8px; border-radius: 6px; }
-    .proj-link { font-size: 13px; color: var(--sky); font-weight: 600; text-decoration: none; transition: color 0.2s; }
+    .proj-link { font-size: 13px; color: var(--sky); font-weight: 600; text-decoration: none; transition: color 0.2s; display: inline-flex; align-items: center; gap: 5px; }
     .proj-link:hover { color: #BAE6FD; }
-    .proj-span { grid-column: span 2; }
+    .proj-link::after { content: "↗"; }
+    /* Wide cards that span both columns */
+    .proj-wide { grid-column: span 2; display: grid; grid-template-columns: 280px 1fr; border-radius: 16px; overflow: hidden; background: var(--navy); border: 1px solid rgba(255,255,255,0.06); transition: transform 0.25s, border-color 0.25s; }
+    .proj-wide:hover { transform: translateY(-4px); border-color: rgba(56,189,248,0.35); }
+    .proj-wide .proj-thumb { height: 100%; min-height: 210px; border-radius: 0; font-size: 60px; }
+    .proj-wide .proj-body { padding: 28px; justify-content: center; }
+    .proj-wide .proj-title { font-size: 18px; }
+    .proj-wide .proj-desc { font-size: 14px; }
 
-    /* ── WHY ── */
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
-    .why-card { background: var(--slate); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 20px; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.25s; }
-    .why-card:hover { border-color: rgba(56,189,248,0.3); }
-    .why-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-    .bg-blue  { background: rgba(37,99,235,0.15); }
-    .bg-sky   { background: rgba(56,189,248,0.12); }
-    .bg-green { background: rgba(34,197,94,0.12); }
-    .bg-amber { background: rgba(251,191,36,0.12); }
+    /* WHY */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .why-card { background: var(--slate); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; transition: border-color 0.25s, transform 0.25s; }
+    .why-card:hover { border-color: rgba(56,189,248,0.3); transform: translateY(-3px); }
+    .why-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .bg-blue   { background: rgba(37,99,235,0.15); }
+    .bg-sky    { background: rgba(56,189,248,0.12); }
+    .bg-green  { background: rgba(34,197,94,0.12); }
+    .bg-amber  { background: rgba(251,191,36,0.12); }
     .bg-purple { background: rgba(139,92,246,0.12); }
-    .why-card h4 { font-size: 14px; font-weight: 700; color: #E2E8F0; margin-bottom: 4px; }
-    .why-card p  { font-size: 12px; color: #64748B; line-height: 1.6; }
+    .why-card h4 { font-size: 15px; font-weight: 700; color: #E2E8F0; margin-bottom: 6px; }
+    .why-card p  { font-size: 13px; color: #64748B; line-height: 1.7; }
+    .why-highlight { grid-column: span 2; background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(56,189,248,0.07)); border: 1px solid rgba(56,189,248,0.2); border-radius: 16px; padding: 28px 32px; display: flex; align-items: center; gap: 24px; }
+    .why-highlight-icon { font-size: 44px; flex-shrink: 0; }
+    .why-highlight h4 { font-size: 16px; font-weight: 700; color: #F1F5F9; margin-bottom: 6px; }
+    .why-highlight p { font-size: 14px; color: #94A3B8; line-height: 1.7; }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     #contact { background: var(--slate); }
     .contact-sub { text-align: center; font-size: 14px; color: #FACC15; margin-bottom: 32px; }
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
-    .contact-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 20px; display: flex; align-items: center; gap: 14px; text-decoration: none; transition: border-color 0.25s, transform 0.25s; }
+    .contact-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 22px; display: flex; align-items: center; gap: 16px; text-decoration: none; transition: border-color 0.25s, transform 0.25s; min-width: 0; }
     .contact-card:hover { border-color: var(--sky); transform: translateY(-3px); }
-    .c-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(37,99,235,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .c-icon svg { width: 20px; height: 20px; }
-    .c-label { font-size: 11px; color: #475569; margin-bottom: 2px; }
-    .c-val { font-size: 13px; color: #E2E8F0; font-weight: 500; }
+    .c-icon { width: 46px; height: 46px; border-radius: 12px; background: rgba(37,99,235,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .c-icon svg { width: 22px; height: 22px; }
+    .c-info { min-width: 0; flex: 1; }
+    .c-label { font-size: 11px; color: #475569; margin-bottom: 3px; }
+    .c-val { font-size: 13px; color: #E2E8F0; font-weight: 500; word-break: break-all; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer { text-align: center; padding: 24px; font-size: 12px; color: #334155; border-top: 1px solid rgba(255,255,255,0.05); background: var(--navy); }
 
-    /* ── BACK TO TOP ── */
+    /* BACK TO TOP */
     #backToTop { position: fixed; bottom: 28px; right: 28px; background: var(--blue); color: white; width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer; font-size: 18px; display: none; z-index: 50; transition: transform 0.25s, background 0.25s; }
     #backToTop:hover { transform: scale(1.15); background: #1E40AF; }
 
-    /* ── LANG ── */
+    /* LANG */
     #langSwitch { background: rgba(30,41,59,0.8); color: #F8FAFC; padding: 7px 14px; border-radius: 8px; font-size: 13px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 6px; transition: background 0.2s; }
     #langSwitch:hover { background: var(--blue); }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 767px) {
       .nav-links { display: none; }
       #menuBtn { display: block; }
       .about-inner { flex-direction: column; }
-      .hero-stats { gap: 20px; }
-      .proj-span { grid-column: span 1; }
+      .hero-stats { gap: 20px; flex-wrap: wrap; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .proj-wide { grid-column: span 1; grid-template-columns: 1fr; }
+      .proj-wide .proj-thumb { min-height: 150px; }
+      .why-highlight { grid-column: span 1; flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
@@ -162,7 +175,6 @@
         <li><a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
         <li><a href="#why" data-en="Why Me" data-es="Por qué yo">Why Me</a></li>
         <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
-        
       </ul>
       <div style="display:flex;align-items:center;gap:12px;">
         <div class="nav-badge"><div class="nav-dot"></div><span data-en="Available" data-es="Disponible">Available</span></div>
@@ -179,7 +191,6 @@
       <li><a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
       <li><a href="#why" data-en="Why Me" data-es="Por qué yo">Why Me</a></li>
       <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
-      
     </ul>
   </header>
 
@@ -205,7 +216,6 @@
     <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
       <a href="#projects" class="btn-primary" data-en="View My Work" data-es="Ver mis trabajos">View My Work</a>
       <a href="Files/CV_Abrahan_Aparicio..pdf" download class="btn-outline" data-en="Download CV" data-es="Descargar CV">Download CV</a>
-      
     </div>
     <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
       <div><span class="stat-num">5+</span><span class="stat-label" data-en="Projects live" data-es="Proyectos en vivo">Projects live</span></div>
@@ -225,10 +235,12 @@
       <div class="about-inner" data-aos="fade-up">
         <div class="about-avatar">AA</div>
         <div class="about-text">
-          <p data-en="I'm passionate about crafting fast, clean, and responsive websites for agencies and businesses — without the bloat of WordPress. Every site I build is hand-coded for performance, scoring 90+ on PageSpeed out of the box." data-es="Me apasiona crear sitios web rápidos, limpios y responsivos para agencias y negocios — sin la carga de WordPress. Cada sitio que construyo está codificado a mano para un rendimiento óptimo, alcanzando 90+ en PageSpeed de inicio.">
+          <p data-en="I'm passionate about crafting fast, clean, and responsive websites for agencies and businesses — without the bloat of WordPress. Every site I build is hand-coded for performance, scoring 90+ on PageSpeed out of the box."
+             data-es="Me apasiona crear sitios web rápidos, limpios y responsivos para agencias y negocios — sin la carga de WordPress. Cada sitio que construyo está codificado a mano para un rendimiento óptimo, alcanzando 90+ en PageSpeed de inicio.">
             I'm passionate about crafting fast, clean, and responsive websites for agencies and businesses — without the bloat of WordPress. Every site I build is hand-coded for performance, scoring 90+ on PageSpeed out of the box.
           </p>
-          <p data-en="Being fully bilingual in English and Spanish, I bridge the communication gap for agencies working across Latin America and international markets." data-es="Al ser completamente bilingüe en inglés y español, facilito la comunicación para agencias que trabajan en Latinoamérica y mercados internacionales.">
+          <p data-en="Being fully bilingual in English and Spanish, I bridge the communication gap for agencies working across Latin America and international markets."
+             data-es="Al ser completamente bilingüe en inglés y español, facilito la comunicación para agencias que trabajan en Latinoamérica y mercados internacionales.">
             Being fully bilingual in English and Spanish, I bridge the communication gap for agencies working across Latin America and international markets.
           </p>
           <div class="about-chips">
@@ -253,127 +265,46 @@
         <div class="sec-line"></div>
       </div>
       <div class="skills-grid">
-
-        <!-- HTML & CSS — 4 years / max 7 → 57% -->
         <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
-          <div class="skill-top">
-            <div class="skill-left">
-              <div class="skill-icon">🌐</div>
-              <div class="skill-name">HTML &amp; CSS</div>
-            </div>
-            <div class="skill-years" data-en="4 yrs" data-es="4 años">4 yrs</div>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:0%" data-width="57%"></div>
-          </div>
+          <div class="skill-top"><div class="skill-left"><div class="skill-icon">🌐</div><div class="skill-name">HTML &amp; CSS</div></div><div class="skill-years" data-en="4 yrs" data-es="4 años">4 yrs</div></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-width="57%"></div></div>
           <div class="skill-note" data-en="Since 2022 · Tailwind, Flexbox, Grid" data-es="Desde 2022 · Tailwind, Flexbox, Grid">Since 2022 · Tailwind, Flexbox, Grid</div>
         </div>
-
-        <!-- JavaScript — 7 years / max 7 → 100% -->
         <div class="skill-card" data-aos="fade-up" data-aos-delay="60">
-          <div class="skill-top">
-            <div class="skill-left">
-              <div class="skill-icon">⚡</div>
-              <div class="skill-name">JavaScript</div>
-            </div>
-            <div class="skill-years" data-en="7 yrs" data-es="7 años">7 yrs</div>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:0%" data-width="100%"></div>
-          </div>
+          <div class="skill-top"><div class="skill-left"><div class="skill-icon">⚡</div><div class="skill-name">JavaScript</div></div><div class="skill-years" data-en="7 yrs" data-es="7 años">7 yrs</div></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-width="100%"></div></div>
           <div class="skill-note" data-en="Since 2019 · DOM, APIs, Animations" data-es="Desde 2019 · DOM, APIs, Animaciones">Since 2019 · DOM, APIs, Animations</div>
         </div>
-
-        <!-- Responsive Design — 3 years / max 7 → 43% -->
         <div class="skill-card" data-aos="fade-up" data-aos-delay="120">
-          <div class="skill-top">
-            <div class="skill-left">
-              <div class="skill-icon">📱</div>
-              <div class="skill-name" data-en="Responsive Design" data-es="Diseño Responsivo">Responsive Design</div>
-            </div>
-            <div class="skill-years" data-en="3 yrs" data-es="3 años">3 yrs</div>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:0%" data-width="43%"></div>
-          </div>
+          <div class="skill-top"><div class="skill-left"><div class="skill-icon">📱</div><div class="skill-name" data-en="Responsive Design" data-es="Diseño Responsivo">Responsive Design</div></div><div class="skill-years" data-en="3 yrs" data-es="3 años">3 yrs</div></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-width="43%"></div></div>
           <div class="skill-note" data-en="Since 2023 · Mobile-first, all screen sizes" data-es="Desde 2023 · Mobile-first, todos los tamaños">Since 2023 · Mobile-first, all screen sizes</div>
         </div>
-
-        <!-- Translation — 7 years / max 7 → 100% -->
         <div class="skill-card" data-aos="fade-up" data-aos-delay="180">
-          <div class="skill-top">
-            <div class="skill-left">
-              <div class="skill-icon">🔤</div>
-              <div class="skill-name" data-en="EN ↔ ES Translation" data-es="Traducción EN ↔ ES">EN ↔ ES Translation</div>
-            </div>
-            <div class="skill-years" data-en="7 yrs" data-es="7 años">7 yrs</div>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:0%" data-width="100%"></div>
-          </div>
+          <div class="skill-top"><div class="skill-left"><div class="skill-icon">🔤</div><div class="skill-name" data-en="EN ↔ ES Translation" data-es="Traducción EN ↔ ES">EN ↔ ES Translation</div></div><div class="skill-years" data-en="7 yrs" data-es="7 años">7 yrs</div></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-width="100%"></div></div>
           <div class="skill-note" data-en="Since 2019 · Proofreading &amp; Editing" data-es="Desde 2019 · Corrección y Edición">Since 2019 · Proofreading &amp; Editing</div>
         </div>
-
-        <!-- Tailwind CSS — 4 years / max 7 → 57% -->
         <div class="skill-card" data-aos="fade-up" data-aos-delay="240">
-          <div class="skill-top">
-            <div class="skill-left">
-              <div class="skill-icon">🎨</div>
-              <div class="skill-name">Tailwind CSS</div>
-            </div>
-            <div class="skill-years" data-en="4 yrs" data-es="4 años">4 yrs</div>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:0%" data-width="57%"></div>
-          </div>
+          <div class="skill-top"><div class="skill-left"><div class="skill-icon">🎨</div><div class="skill-name">Tailwind CSS</div></div><div class="skill-years" data-en="4 yrs" data-es="4 años">4 yrs</div></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-width="57%"></div></div>
           <div class="skill-note" data-en="Since 2022 · Utility-first, rapid UI" data-es="Desde 2022 · Utility-first, UI rápida">Since 2022 · Utility-first, rapid UI</div>
         </div>
-
-        <!-- C++ — 6 years / max 7 → 86% -->
         <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="skill-top">
-            <div class="skill-left">
-              <div class="skill-icon">⚙️</div>
-              <div class="skill-name">C++</div>
-            </div>
-            <div class="skill-years" data-en="6 yrs" data-es="6 años">6 yrs</div>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:0%" data-width="86%"></div>
-          </div>
+          <div class="skill-top"><div class="skill-left"><div class="skill-icon">⚙️</div><div class="skill-name">C++</div></div><div class="skill-years" data-en="6 yrs" data-es="6 años">6 yrs</div></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-width="86%"></div></div>
           <div class="skill-note" data-en="Since 2020 · Logic, OOP, Algorithms" data-es="Desde 2020 · Lógica, POO, Algoritmos">Since 2020 · Logic, OOP, Algorithms</div>
         </div>
-
-        <!-- Python — 2 years / max 7 → 29% -->
         <div class="skill-card" data-aos="fade-up" data-aos-delay="360">
-          <div class="skill-top">
-            <div class="skill-left">
-              <div class="skill-icon">🐍</div>
-              <div class="skill-name">Python</div>
-            </div>
-            <div class="skill-years" data-en="2 yrs" data-es="2 años">2 yrs</div>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:0%" data-width="29%"></div>
-          </div>
+          <div class="skill-top"><div class="skill-left"><div class="skill-icon">🐍</div><div class="skill-name">Python</div></div><div class="skill-years" data-en="2 yrs" data-es="2 años">2 yrs</div></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-width="29%"></div></div>
           <div class="skill-note" data-en="Since 2024 · Scripting, Automation" data-es="Desde 2024 · Scripts, Automatización">Since 2024 · Scripting, Automation</div>
         </div>
-
-        <!-- Customer Service — 1 year / max 7 → 14% -->
         <div class="skill-card" data-aos="fade-up" data-aos-delay="420">
-          <div class="skill-top">
-            <div class="skill-left">
-              <div class="skill-icon">🤝</div>
-              <div class="skill-name" data-en="Customer Service" data-es="Atención al Cliente">Customer Service</div>
-            </div>
-            <div class="skill-years" data-en="1 yr · Training" data-es="1 año · En formación">1 yr · Training</div>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:0%" data-width="14%"></div>
-          </div>
+          <div class="skill-top"><div class="skill-left"><div class="skill-icon">🤝</div><div class="skill-name" data-en="Customer Service" data-es="Atención al Cliente">Customer Service</div></div><div class="skill-years" data-en="1 yr · Training" data-es="1 año · En formación">1 yr · Training</div></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-width="14%"></div></div>
           <div class="skill-note" data-en="Since 2025 · Communication &amp; Teamwork" data-es="Desde 2025 · Comunicación y Trabajo en Equipo">Since 2025 · Communication &amp; Teamwork</div>
         </div>
-
       </div>
     </div>
   </section>
@@ -390,50 +321,62 @@
       </p>
       <div class="projects-grid">
 
+        <!-- Gaming -->
         <div class="proj-card" data-aos="fade-up">
           <div class="proj-thumb" style="background:linear-gradient(135deg,#1a0533,#7c3aed);">
-            🎮 <span class="proj-thumb-label">Live ↗</span>
+            🎮
+            <span class="proj-thumb-label">Live ↗</span>
+            <span class="proj-thumb-type" data-en="E-Commerce" data-es="Tienda Online">E-Commerce</span>
           </div>
           <div class="proj-body">
             <div class="proj-title" data-en="Gaming E-Shop" data-es="Tienda Gamer">Gaming E-Shop</div>
-            <div class="proj-desc" data-en="Sleek UI concept for the gaming industry with modern dark aesthetics." data-es="Concepto de UI elegante para la industria gamer con estética oscura moderna.">Sleek UI concept for the gaming industry with modern dark aesthetics.</div>
-            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
-            <a href="https://abrahandejesusaparicio-code.github.io/sentinel-gaming" target="_blank" class="proj-link" data-en="🔗 View project" data-es="🔗 Ver proyecto">🔗 View project</a>
+            <div class="proj-desc" data-en="Sleek dark-theme UI for the gaming industry. Includes product grid, hero banner, and smooth animations — a strong example of modern front-end work for e-commerce clients." data-es="UI con tema oscuro para la industria gamer. Incluye grilla de productos, hero banner y animaciones suaves — un ejemplo sólido de trabajo front-end moderno para clientes de e-commerce.">Sleek dark-theme UI for the gaming industry. Includes product grid, hero banner, and smooth animations — a strong example of modern front-end work for e-commerce clients.</div>
+            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">Dark UI</span></div>
+            <a href="https://abrahandejesusaparicio-code.github.io/sentinel-gaming" target="_blank" class="proj-link" data-en="View project" data-es="Ver proyecto">View project</a>
           </div>
         </div>
 
+        <!-- Barbershop -->
         <div class="proj-card" data-aos="fade-up" data-aos-delay="80">
           <div class="proj-thumb" style="background:linear-gradient(135deg,#1a0a00,#92400e);">
-            ✂️ <span class="proj-thumb-label">Live ↗</span>
+            ✂️
+            <span class="proj-thumb-label">Live ↗</span>
+            <span class="proj-thumb-type" data-en="Local Business" data-es="Negocio Local">Local Business</span>
           </div>
           <div class="proj-body">
             <div class="proj-title" data-en="Barbershop Website" data-es="Sitio de Barbería">Barbershop Website</div>
-            <div class="proj-desc" data-en="Stylish barbershop site with modern UI and clean responsive layout." data-es="Sitio de barbería elegante con UI moderna y diseño responsivo limpio.">Stylish barbershop site with modern UI and clean responsive layout.</div>
-            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
-            <a href="https://abrahandejesusaparicio-code.github.io/Barbershop-Showcase./" target="_blank" class="proj-link" data-en="🔗 View project" data-es="🔗 Ver proyecto">🔗 View project</a>
+            <div class="proj-desc" data-en="Bold barbershop site with services menu, gallery section, and a clean call-to-action layout. The type of site local service businesses across Panama need to compete online." data-es="Sitio de barbería con menú de servicios, galería y diseño limpio con llamada a la acción. El tipo de sitio que los negocios locales de Panamá necesitan para competir en línea.">Bold barbershop site with services menu, gallery section, and a clean call-to-action layout. The type of site local service businesses across Panama need to compete online.</div>
+            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">Responsive</span></div>
+            <a href="https://abrahandejesusaparicio-code.github.io/Barbershop-Showcase./" target="_blank" class="proj-link" data-en="View project" data-es="Ver proyecto">View project</a>
           </div>
         </div>
 
-        <div class="proj-card proj-span" data-aos="fade-up" data-aos-delay="160">
-          <div class="proj-thumb" style="background:linear-gradient(135deg,#052010,#15803d);height:110px;">
-            🏠 <span class="proj-thumb-label">Live ↗</span>
+        <!-- Real Estate — wide featured -->
+        <div class="proj-wide" data-aos="fade-up" data-aos-delay="160">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#052010,#15803d);">
+            🏠
+            <span class="proj-thumb-label">Live ↗</span>
+            <span class="proj-thumb-type" data-en="Real Estate" data-es="Bienes Raíces">Real Estate</span>
           </div>
           <div class="proj-body">
             <div class="proj-title" data-en="Real Estate Showcase" data-es="Sitio de Bienes Raíces">Real Estate Showcase</div>
-            <div class="proj-desc" data-en="Modern real estate site with a video hero, featured property listings, scroll animations, and fully responsive layout — exactly what agencies in Panama need." data-es="Sitio moderno de bienes raíces con video en hero, propiedades destacadas, animaciones al scroll y diseño completamente responsivo — exactamente lo que las agencias en Panamá necesitan.">Modern real estate site with a video hero, featured property listings, scroll animations, and fully responsive layout — exactly what agencies in Panama need.</div>
-            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">AOS</span><span class="tag">Responsive</span></div>
-            <a href="https://abrahandejesusaparicio-code.github.io/Real-state-model/" target="_blank" class="proj-link" data-en="🔗 View project" data-es="🔗 Ver proyecto">🔗 View project</a>
+            <div class="proj-desc" data-en="Full real estate website built for the Panama market — full-screen video hero, featured property listings with cards, smooth AOS scroll animations, bilingual-ready layout, and a fast-loading fully responsive design. Exactly what agencies need to pitch real estate clients." data-es="Sitio completo de bienes raíces para el mercado panameño — video a pantalla completa, listados de propiedades, animaciones con AOS, diseño listo para ser bilingüe y completamente responsivo. Exactamente lo que las agencias necesitan para venderles a clientes de bienes raíces.">Full real estate website built for the Panama market — full-screen video hero, featured property listings with cards, smooth AOS scroll animations, bilingual-ready layout, and a fast-loading fully responsive design. Exactly what agencies need to pitch real estate clients.</div>
+            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">AOS</span><span class="tag">Video Hero</span><span class="tag">Responsive</span></div>
+            <a href="https://abrahandejesusaparicio-code.github.io/Real-state-model/" target="_blank" class="proj-link" data-en="View project" data-es="Ver proyecto">View project</a>
           </div>
         </div>
 
-        <div class="proj-card proj-span" data-aos="fade-up" data-aos-delay="200">
-          <div class="proj-thumb" style="background:linear-gradient(135deg,#0f172a,#1e40af);height:80px;">
-            💼 <span class="proj-thumb-label">This site</span>
+        <!-- Portfolio — wide featured -->
+        <div class="proj-wide" data-aos="fade-up" data-aos-delay="200">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#0f172a,#1e40af);">
+            💼
+            <span class="proj-thumb-label" data-en="This site" data-es="Este sitio">This site</span>
+            <span class="proj-thumb-type" data-en="Portfolio" data-es="Portafolio">Portfolio</span>
           </div>
           <div class="proj-body">
             <div class="proj-title" data-en="Portfolio Website" data-es="Sitio de Portafolio">Portfolio Website</div>
-            <div class="proj-desc" data-en="This portfolio — bilingual, animated, fully responsive, built from scratch with HTML, Tailwind CSS, and JavaScript." data-es="Este portafolio — bilingüe, animado, completamente responsivo, construido desde cero con HTML, Tailwind CSS y JavaScript.">This portfolio — bilingual, animated, fully responsive, built from scratch with HTML, Tailwind CSS, and JavaScript.</div>
-            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">Tailwind</span><span class="tag">JS</span><span class="tag">AOS</span><span class="tag">Typed.js</span></div>
+            <div class="proj-desc" data-en="This portfolio itself — fully bilingual EN/ES, animated with AOS and Typed.js, skill bars triggered by IntersectionObserver, smooth mobile menu, and built from zero with pure HTML, Tailwind CSS and JavaScript. No framework, no build step, just fast clean code." data-es="Este portafolio en sí — completamente bilingüe EN/ES, animado con AOS y Typed.js, barras de habilidades activadas por IntersectionObserver, menú móvil fluido y construido desde cero con HTML puro, Tailwind CSS y JavaScript. Sin framework, sin build step, solo código rápido y limpio.">This portfolio itself — fully bilingual EN/ES, animated with AOS and Typed.js, skill bars triggered by IntersectionObserver, smooth mobile menu, and built from zero with pure HTML, Tailwind CSS and JavaScript. No framework, no build step, just fast clean code.</div>
+            <div class="proj-tags"><span class="tag">HTML</span><span class="tag">Tailwind</span><span class="tag">JS</span><span class="tag">AOS</span><span class="tag">Typed.js</span><span class="tag">Bilingual</span></div>
           </div>
         </div>
 
@@ -449,41 +392,56 @@
         <div class="sec-line"></div>
       </div>
       <div class="why-grid">
+
         <div class="why-card" data-aos="fade-up">
           <div class="why-icon bg-blue">⚡</div>
           <div>
             <h4 data-en="Fast delivery" data-es="Entrega rápida">Fast delivery</h4>
-            <p data-en="No CMS bloat — pure HTML/CSS ships in days, not weeks." data-es="Sin WordPress — HTML/CSS puro listo en días, no semanas.">No CMS bloat — pure HTML/CSS ships in days, not weeks.</p>
+            <p data-en="No CMS, no plugins, no waiting. Pure HTML/CSS sites are ready in days — not weeks. Agencies can hand them off to clients immediately." data-es="Sin CMS, sin plugins. Sitios en HTML/CSS puro listos en días. Las agencias pueden entregarlos a clientes de inmediato.">No CMS, no plugins, no waiting. Pure HTML/CSS sites are ready in days — not weeks. Agencies can hand them off to clients immediately.</p>
           </div>
         </div>
+
         <div class="why-card" data-aos="fade-up" data-aos-delay="60">
           <div class="why-icon bg-sky">📱</div>
           <div>
-            <h4 data-en="Mobile-first" data-es="Mobile-first">Mobile-first</h4>
-            <p data-en="Every site works perfectly on any screen size, guaranteed." data-es="Cada sitio funciona perfectamente en cualquier tamaño de pantalla.">Every site works perfectly on any screen size, guaranteed.</p>
+            <h4 data-en="Mobile-first always" data-es="Siempre mobile-first">Mobile-first always</h4>
+            <p data-en="Every site is tested and polished on mobile before desktop. Over 70% of web traffic in Panama is mobile — this is non-negotiable." data-es="Cada sitio se prueba en móvil antes que en escritorio. Más del 70% del tráfico web en Panamá es móvil — esto no es negociable.">Every site is tested and polished on mobile before desktop. Over 70% of web traffic in Panama is mobile — this is non-negotiable.</p>
           </div>
         </div>
+
         <div class="why-card" data-aos="fade-up" data-aos-delay="120">
           <div class="why-icon bg-green">🌐</div>
           <div>
-            <h4 data-en="Bilingual (EN/ES)" data-es="Bilingüe (EN/ES)">Bilingual (EN/ES)</h4>
-            <p data-en="No translation costs — I handle both languages natively." data-es="Sin costos de traducción — manejo ambos idiomas de forma nativa.">No translation costs — I handle both languages natively.</p>
+            <h4 data-en="Truly bilingual" data-es="Verdaderamente bilingüe">Truly bilingual</h4>
+            <p data-en="Native-level English and Spanish. No translation costs, no miscommunication. I handle both client and agency communication directly." data-es="Inglés y español a nivel nativo. Sin costos de traducción. Manejo la comunicación con clientes y agencias directamente.">Native-level English and Spanish. No translation costs, no miscommunication. I handle both client and agency communication directly.</p>
           </div>
         </div>
+
         <div class="why-card" data-aos="fade-up" data-aos-delay="180">
           <div class="why-icon bg-amber">🧼</div>
           <div>
-            <h4 data-en="Clean code" data-es="Código limpio">Clean code</h4>
-            <p data-en="Easy for agencies to hand off, extend, or maintain." data-es="Fácil de entregar, extender o mantener para las agencias.">Easy for agencies to hand off, extend, or maintain.</p>
+            <h4 data-en="Clean, handoff-ready code" data-es="Código limpio y listo para entregar">Clean, handoff-ready code</h4>
+            <p data-en="Well-structured HTML with clear comments and no framework dependencies. Any developer can open the file and understand it in minutes." data-es="HTML bien estructurado con comentarios claros y sin dependencias. Cualquier desarrollador puede abrirlo y entenderlo en minutos.">Well-structured HTML with clear comments and no framework dependencies. Any developer can open the file and understand it in minutes.</p>
           </div>
         </div>
+
         <div class="why-card" data-aos="fade-up" data-aos-delay="240">
           <div class="why-icon bg-purple">🚀</div>
           <div>
-            <h4 data-en="90+ PageSpeed" data-es="90+ PageSpeed">90+ PageSpeed</h4>
-            <p data-en="Lightweight sites that rank better and load faster for clients." data-es="Sitios ligeros que posicionan mejor y cargan más rápido para los clientes.">Lightweight sites that rank better and load faster for clients.</p>
+            <h4 data-en="90+ PageSpeed score" data-es="90+ en PageSpeed">90+ PageSpeed score</h4>
+            <p data-en="Lightweight sites rank better on Google and convert better for clients. No heavy plugins, no render-blocking scripts, no excuses." data-es="Sitios ligeros posicionan mejor en Google y convierten más. Sin plugins pesados, sin scripts bloqueantes, sin excusas.">Lightweight sites rank better on Google and convert better for clients. No heavy plugins, no render-blocking scripts, no excuses.</p>
           </div>
         </div>
+
+        <!-- Panama banner — full width -->
+        <div class="why-highlight" data-aos="fade-up" data-aos-delay="300">
+          <div class="why-highlight-icon">🇵🇦</div>
+          <div>
+            <h4 data-en="Based in Panama — built for the local market" data-es="Basado en Panamá — construido para el mercado local">Based in Panama — built for the local market</h4>
+            <p data-en="I know the Panama market. Real estate in Chame, restaurants in Casco Viejo, construction companies across the city — I understand what local businesses and agencies actually need, and I build exactly that." data-es="Conozco el mercado panameño. Bienes raíces en Chame, restaurantes en el Casco Viejo, constructoras en toda la ciudad — entiendo lo que los negocios locales y agencias realmente necesitan, y lo construyo.">I know the Panama market. Real estate in Chame, restaurants in Casco Viejo, construction companies across the city — I understand what local businesses and agencies actually need, and I build exactly that.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -497,42 +455,51 @@
       </div>
       <p class="contact-sub" data-en="Click any card below to reach me directly!" data-es="¡Haz clic en cualquier tarjeta para contactarme directamente!">Click any card below to reach me directly!</p>
       <div class="contact-grid">
+
+        <!-- EMAIL: href on <a>, text in inner elements — NOT touched by applyLanguage -->
         <a href="mailto:abrahandejesusaparicio@gmail.com" class="contact-card" data-aos="zoom-in">
           <div class="c-icon">
             <svg fill="none" viewBox="0 0 24 24" stroke="#38BDF8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
-          <div>
-            <div class="c-label" data-en="Email" data-es="Correo">Email</div>
-            <div class="c-val" style="word-break: break-all;">abrahandejesusaparicio@gmail.com</div>
+          <div class="c-info">
+            <div class="c-label"><span data-en="Email" data-es="Correo">Email</span></div>
+            <div class="c-val">abrahandejesusaparicio@gmail.com</div>
           </div>
         </a>
-        <a href="https://wa.me/50765830384" target="_blank" class="contact-card" data-aos="zoom-in" data-aos-delay="80">
+
+        <!-- WHATSAPP -->
+        <a href="https://wa.me/50765830384" target="_blank" rel="noopener" class="contact-card" data-aos="zoom-in" data-aos-delay="80">
           <div class="c-icon">
-            <svg fill="none" viewBox="0 0 24 24" stroke="#38BDF8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.586l2.414 2.414a1 1 0 010 1.414L9.414 9.414a16 16 0 006.172 6.172l2.293-2.293a1 1 0 011.414 0l2.414 2.414A1 1 0 0120 19h-1C10.373 21 3 13.627 3 5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#38BDF8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </div>
-          <div>
-            <div class="c-label" data-en="Phone / WhatsApp" data-es="Teléfono / WhatsApp">Phone / WhatsApp</div>
+          <div class="c-info">
+            <div class="c-label"><span data-en="WhatsApp" data-es="WhatsApp">WhatsApp</span></div>
             <div class="c-val">+507 6583-0384</div>
           </div>
         </a>
-        <a href="https://www.linkedin.com/in/abrahan-aparicio-herrera" target="_blank" class="contact-card" data-aos="zoom-in" data-aos-delay="160">
+
+        <!-- LINKEDIN -->
+        <a href="https://www.linkedin.com/in/abrahan-aparicio-herrera" target="_blank" rel="noopener" class="contact-card" data-aos="zoom-in" data-aos-delay="160">
           <div class="c-icon">
             <svg fill="currentColor" viewBox="0 0 24 24" style="color:#38BDF8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
-          <div>
+          <div class="c-info">
             <div class="c-label">LinkedIn</div>
             <div class="c-val">abrahan-aparicio-herrera</div>
           </div>
         </a>
-        <a href="https://github.com/abrahandejesusaparicio-code" target="_blank" class="contact-card" data-aos="zoom-in" data-aos-delay="240">
+
+        <!-- GITHUB -->
+        <a href="https://github.com/abrahandejesusaparicio-code" target="_blank" rel="noopener" class="contact-card" data-aos="zoom-in" data-aos-delay="240">
           <div class="c-icon">
             <svg fill="currentColor" viewBox="0 0 24 24" style="color:#38BDF8"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.486 2 12.018c0 4.428 2.865 8.188 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.465-1.11-1.465-.907-.62.069-.608.069-.608 1.004.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.112-4.555-4.951 0-1.093.39-1.988 1.11-2.688-.111-.253-.481-1.272.105-2.65 0 0 .905-.29 2.963 1.085A10.26 10.26 0 0112 6.844c.916.004 1.84.124 2.704.365 2.057-1.375 2.96-1.085 2.96-1.085.588 1.378.218 2.397.107 2.65.693.7 1.108 1.595 1.108 2.688 0 3.847-2.337 4.695-4.563 4.944.36.31.681.92.681 1.855v2.751c0 .267.18.58.688.482A10.019 10.019 0 0022 12.018C22 6.486 17.523 2 12 2z" clip-rule="evenodd"/></svg>
           </div>
-          <div>
+          <div class="c-info">
             <div class="c-label">GitHub</div>
             <div class="c-val">abrahandejesusaparicio-code</div>
           </div>
         </a>
+
       </div>
     </div>
   </section>
@@ -542,33 +509,25 @@
     © 2026 Abrahan De Jesús Aparicio Herrera. <span data-en="All Rights Reserved." data-es="Todos los derechos reservados.">All Rights Reserved.</span>
   </footer>
 
-  <!-- BACK TO TOP -->
   <button id="backToTop" aria-label="Back to Top">⬆</button>
 
-  <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: window.innerWidth < 768 ? 600 : 900, once: false, mirror: true });
 
-    // Typed.js
     let typed = new Typed("#typed", {
       strings: ["Front-End Developer", "Bilingual Translator", "Clean Code Advocate", "Available for Freelance"],
       typeSpeed: 50, backSpeed: 28, loop: true
     });
 
-    // Skill bar animation on scroll
-    const fills = document.querySelectorAll('.skill-bar-fill');
+    // Skill bars
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          el.style.width = el.dataset.width;
-        }
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.style.width = e.target.dataset.width; });
     }, { threshold: 0.3 });
-    fills.forEach(f => observer.observe(f));
+    document.querySelectorAll('.skill-bar-fill').forEach(f => observer.observe(f));
 
     // Language switcher
+    // KEY FIX: skip <a> tags entirely so mailto/wa.me/linkedin/github hrefs are never broken
     const translations = {
       en: { typed: ["Front-End Developer","Bilingual Translator","Clean Code Advocate","Available for Freelance"] },
       es: { typed: ["Desarrollador Front-End","Traductor Bilingüe","Código Limpio","Disponible para Freelance"] }
@@ -577,21 +536,15 @@
 
     function applyLanguage(lang) {
       document.querySelectorAll("[data-en]").forEach(el => {
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
-        el.textContent = el.getAttribute(`data-${lang}`);
+        if (el.tagName === 'A' || el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+        el.textContent = el.getAttribute("data-" + lang);
       });
       const flagEl = document.getElementById("flag");
       const langTextEl = document.getElementById("langText");
-      if (flagEl) {
-        flagEl.src = lang === "en" ? "https://flagcdn.com/gb.svg" : "https://flagcdn.com/es.svg";
-        flagEl.alt = lang === "en" ? "EN" : "ES";
-      }
+      if (flagEl) { flagEl.src = lang === "en" ? "https://flagcdn.com/gb.svg" : "https://flagcdn.com/es.svg"; flagEl.alt = lang === "en" ? "EN" : "ES"; }
       if (langTextEl) langTextEl.textContent = lang === "en" ? "ES" : "EN";
       if (typed && typeof typed.destroy === "function") typed.destroy();
-      typed = new Typed("#typed", {
-        strings: translations[lang].typed,
-        typeSpeed: 50, backSpeed: 28, loop: true
-      });
+      typed = new Typed("#typed", { strings: translations[lang].typed, typeSpeed: 50, backSpeed: 28, loop: true });
     }
 
     document.getElementById("langSwitch").addEventListener("click", () => {
